@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		951C1EF8479C49B1367C0CDF /* Pods_DaTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */; };
+		B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */; };
+		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
+		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
+		BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA446CB21634DA7008C6FCC /* Main.storyboard */; };
+		BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA446CE21634DA8008C6FCC /* Assets.xcassets */; };
+		BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */; };
+		BAA446DD21634DA8008C6FCC /* DaTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446DC21634DA8008C6FCC /* DaTrackerTests.swift */; };
+		BAA446E821634DA8008C6FCC /* DaTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */; };
+		BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7359E216386D40054B7E3 /* AVFoundation.framework */; };
+		FE7B49D46020F4EE2EB10529 /* Pods_DaTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAA446D921634DA8008C6FCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAA446BC21634DA7008C6FCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAA446C321634DA7008C6FCC;
+			remoteInfo = DaTracker;
+		};
+		BAA446E421634DA8008C6FCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAA446BC21634DA7008C6FCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAA446C321634DA7008C6FCC;
+			remoteInfo = DaTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FEAF726A3A8D02763B5D947 /* Pods-DaTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTracker/Pods-DaTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTracker/Pods-DaTracker.release.xcconfig"; sourceTree = "<group>"; };
+		7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAA446C921634DA7008C6FCC /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
+		BAA446CC21634DA7008C6FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAA446CE21634DA8008C6FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAA446D121634DA8008C6FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAA446D321634DA8008C6FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAA446D821634DA8008C6FCC /* DaTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA446DC21634DA8008C6FCC /* DaTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaTrackerTests.swift; sourceTree = "<group>"; };
+		BAA446DE21634DA8008C6FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAA446E321634DA8008C6FCC /* DaTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaTrackerUITests.swift; sourceTree = "<group>"; };
+		BAA446E921634DA8008C6FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAD7359E216386D40054B7E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAA446C121634DA7008C6FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */,
+				B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446D521634DA8008C6FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				951C1EF8479C49B1367C0CDF /* Pods_DaTrackerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446E021634DA8008C6FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE7B49D46020F4EE2EB10529 /* Pods_DaTrackerUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68F8D3A7B5B43CCAD35A798C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAD7359E216386D40054B7E3 /* AVFoundation.framework */,
+				5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */,
+				1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */,
+				2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAA446BB21634DA7008C6FCC = {
+			isa = PBXGroup;
+			children = (
+				BAA446C621634DA7008C6FCC /* DaTracker */,
+				BAA446DB21634DA8008C6FCC /* DaTrackerTests */,
+				BAA446E621634DA8008C6FCC /* DaTrackerUITests */,
+				BAA446C521634DA7008C6FCC /* Products */,
+				EE944F44A8A13D549B56DFCE /* Pods */,
+				68F8D3A7B5B43CCAD35A798C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BAA446C521634DA7008C6FCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446C421634DA7008C6FCC /* DaTracker.app */,
+				BAA446D821634DA8008C6FCC /* DaTrackerTests.xctest */,
+				BAA446E321634DA8008C6FCC /* DaTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAA446C621634DA7008C6FCC /* DaTracker */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446F521635A15008C6FCC /* UI */,
+				BAA446C721634DA7008C6FCC /* AppDelegate.swift */,
+				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
+				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
+				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
+				BAA446D321634DA8008C6FCC /* Info.plist */,
+			);
+			path = DaTracker;
+			sourceTree = "<group>";
+		};
+		BAA446DB21634DA8008C6FCC /* DaTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446DC21634DA8008C6FCC /* DaTrackerTests.swift */,
+				BAA446DE21634DA8008C6FCC /* Info.plist */,
+			);
+			path = DaTrackerTests;
+			sourceTree = "<group>";
+		};
+		BAA446E621634DA8008C6FCC /* DaTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */,
+				BAA446E921634DA8008C6FCC /* Info.plist */,
+			);
+			path = DaTrackerUITests;
+			sourceTree = "<group>";
+		};
+		BAA446F521635A15008C6FCC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446C921634DA7008C6FCC /* TrackerViewController.swift */,
+			);
+			name = UI;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		EE944F44A8A13D549B56DFCE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FEAF726A3A8D02763B5D947 /* Pods-DaTracker.debug.xcconfig */,
+				7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */,
+				CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */,
+				7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */,
+				6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */,
+				CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAA446C321634DA7008C6FCC /* DaTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA446EC21634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTracker" */;
+			buildPhases = (
+				68305A1F7B7907610E543BA8 /* [CP] Check Pods Manifest.lock */,
+				BAA446C021634DA7008C6FCC /* Sources */,
+				BAA446C121634DA7008C6FCC /* Frameworks */,
+				BAA446C221634DA7008C6FCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DaTracker;
+			productName = DaTracker;
+			productReference = BAA446C421634DA7008C6FCC /* DaTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BAA446D721634DA8008C6FCC /* DaTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA446EF21634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTrackerTests" */;
+			buildPhases = (
+				F57FB36C80EFD815AB3C6BBA /* [CP] Check Pods Manifest.lock */,
+				BAA446D421634DA8008C6FCC /* Sources */,
+				BAA446D521634DA8008C6FCC /* Frameworks */,
+				BAA446D621634DA8008C6FCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAA446DA21634DA8008C6FCC /* PBXTargetDependency */,
+			);
+			name = DaTrackerTests;
+			productName = DaTrackerTests;
+			productReference = BAA446D821634DA8008C6FCC /* DaTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BAA446E221634DA8008C6FCC /* DaTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA446F221634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTrackerUITests" */;
+			buildPhases = (
+				1BA7CBC88179E77ECDB736A9 /* [CP] Check Pods Manifest.lock */,
+				BAA446DF21634DA8008C6FCC /* Sources */,
+				BAA446E021634DA8008C6FCC /* Frameworks */,
+				BAA446E121634DA8008C6FCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAA446E521634DA8008C6FCC /* PBXTargetDependency */,
+			);
+			name = DaTrackerUITests;
+			productName = DaTrackerUITests;
+			productReference = BAA446E321634DA8008C6FCC /* DaTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAA446BC21634DA7008C6FCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = "";
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Gaika Group";
+				TargetAttributes = {
+					BAA446C321634DA7008C6FCC = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					BAA446D721634DA8008C6FCC = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BAA446C321634DA7008C6FCC;
+					};
+					BAA446E221634DA8008C6FCC = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = BAA446C321634DA7008C6FCC;
+					};
+				};
+			};
+			buildConfigurationList = BAA446BF21634DA7008C6FCC /* Build configuration list for PBXProject "DaTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BAA446BB21634DA7008C6FCC;
+			productRefGroup = BAA446C521634DA7008C6FCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BAA446C321634DA7008C6FCC /* DaTracker */,
+				BAA446D721634DA8008C6FCC /* DaTrackerTests */,
+				BAA446E221634DA8008C6FCC /* DaTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BAA446C221634DA7008C6FCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */,
+				BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */,
+				BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446D621634DA8008C6FCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446E121634DA8008C6FCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BA7CBC88179E77ECDB736A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaTrackerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68305A1F7B7907610E543BA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F57FB36C80EFD815AB3C6BBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAA446C021634DA7008C6FCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
+				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446D421634DA8008C6FCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA446DD21634DA8008C6FCC /* DaTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA446DF21634DA8008C6FCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAA446E821634DA8008C6FCC /* DaTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BAA446DA21634DA8008C6FCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAA446C321634DA7008C6FCC /* DaTracker */;
+			targetProxy = BAA446D921634DA8008C6FCC /* PBXContainerItemProxy */;
+		};
+		BAA446E521634DA8008C6FCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAA446C321634DA7008C6FCC /* DaTracker */;
+			targetProxy = BAA446E421634DA8008C6FCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BAA446CB21634DA7008C6FCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAA446CC21634DA7008C6FCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAA446D121634DA8008C6FCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BAA446EA21634DA8008C6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BAA446EB21634DA8008C6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAA446ED21634DA8008C6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEAF726A3A8D02763B5D947 /* Pods-DaTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BAA446EE21634DA8008C6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BAA446F021634DA8008C6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaTracker.app/DaTracker";
+			};
+			name = Debug;
+		};
+		BAA446F121634DA8008C6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaTracker.app/DaTracker";
+			};
+			name = Release;
+		};
+		BAA446F321634DA8008C6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DaTracker;
+			};
+			name = Debug;
+		};
+		BAA446F421634DA8008C6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T63369DC8B;
+				INFOPLIST_FILE = DaTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DaTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAA446BF21634DA7008C6FCC /* Build configuration list for PBXProject "DaTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA446EA21634DA8008C6FCC /* Debug */,
+				BAA446EB21634DA8008C6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAA446EC21634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA446ED21634DA8008C6FCC /* Debug */,
+				BAA446EE21634DA8008C6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAA446EF21634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA446F021634DA8008C6FCC /* Debug */,
+				BAA446F121634DA8008C6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAA446F221634DA8008C6FCC /* Build configuration list for PBXNativeTarget "DaTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA446F321634DA8008C6FCC /* Debug */,
+				BAA446F421634DA8008C6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAA446BC21634DA7008C6FCC /* Project object */;
+}
