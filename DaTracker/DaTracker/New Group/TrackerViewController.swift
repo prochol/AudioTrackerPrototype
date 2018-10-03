@@ -13,6 +13,7 @@ import AVFoundation
 class TrackerViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet private weak var recordButton: UIButton!
+    @IBOutlet private weak var playerContainerBottomConstraint: NSLayoutConstraint!
     
     private let audioSession = AVAudioSession.sharedInstance()
     private var audioRecorder: AVAudioRecorder?

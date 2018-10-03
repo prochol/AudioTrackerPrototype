@@ -17,6 +17,7 @@
 		BAA446DD21634DA8008C6FCC /* DaTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446DC21634DA8008C6FCC /* DaTrackerTests.swift */; };
 		BAA446E821634DA8008C6FCC /* DaTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */; };
 		BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7359E216386D40054B7E3 /* AVFoundation.framework */; };
+		ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */; };
 		FE7B49D46020F4EE2EB10529 /* Pods_DaTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		BAD7359E216386D40054B7E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA446C921634DA7008C6FCC /* TrackerViewController.swift */,
+				ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */,
 			);
 			name = UI;
 			path = "New Group";
@@ -392,6 +395,7 @@
 			files = (
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
+				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
