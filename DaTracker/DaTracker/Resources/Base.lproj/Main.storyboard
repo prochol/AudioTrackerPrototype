@@ -107,9 +107,12 @@
                                 <state key="normal" image="PlayerPlayButton">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playButtonTapped" destination="YEe-9S-Cjk" eventType="touchUpInside" id="vNU-xr-R5e"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XbA-fb-RsE">
-                                <rect key="frame" x="100.5" y="21" width="228.5" height="31"/>
+                                <rect key="frame" x="101" y="21" width="228" height="31"/>
                                 <color key="tintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gVv-mV-Mru"/>
@@ -117,7 +120,7 @@
                                 <color key="minimumTrackTintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXY-km-qvC">
-                                <rect key="frame" x="58" y="25.5" width="36.5" height="21"/>
+                                <rect key="frame" x="58" y="25.5" width="37" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="cwP-Wg-4gm"/>
                                 </constraints>
@@ -148,10 +151,16 @@
                             <constraint firstItem="MXY-km-qvC" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="kRk-XC-iqW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="MXY-km-qvC" id="LtM-2v-dHL"/>
+                        <outlet property="finishTimeLabel" destination="VMO-ML-YRA" id="eRB-JZ-vSU"/>
+                        <outlet property="playPauseButton" destination="8uu-cP-gxi" id="WVo-ll-U8t"/>
+                        <outlet property="slider" destination="XbA-fb-RsE" id="v7j-B5-Br7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XL7-lw-5WU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="661"/>
+            <point key="canvasLocation" x="60" y="660.2698650674663"/>
         </scene>
     </scenes>
     <resources>

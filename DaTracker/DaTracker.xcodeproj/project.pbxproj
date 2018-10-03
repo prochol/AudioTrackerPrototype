@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		951C1EF8479C49B1367C0CDF /* Pods_DaTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */; };
 		B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */; };
+		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
 		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
 		BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA446CB21634DA7008C6FCC /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTracker/Pods-DaTracker.release.xcconfig"; sourceTree = "<group>"; };
 		7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA446C921634DA7008C6FCC /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		ED8D2AE2B5DCF669A1EC1262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA6315F52164B2E20071DE9F /* sample.mp3 */,
 				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
 				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
 				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
@@ -299,6 +302,7 @@
 			files = (
 				BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */,
 				BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */,
+				BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */,
 				BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
