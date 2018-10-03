@@ -49,7 +49,7 @@
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA446C921634DA7008C6FCC /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		BAA446CC21634DA7008C6FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BAA446CE21634DA8008C6FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAA446CE21634DA8008C6FCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		BAA446D121634DA8008C6FCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAA446D321634DA8008C6FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAA446D821634DA8008C6FCC /* DaTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,11 +128,9 @@
 		BAA446C621634DA7008C6FCC /* DaTracker */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D2AE2B5DCF669A1EC1262 /* Resources */,
 				BAA446F521635A15008C6FCC /* UI */,
 				BAA446C721634DA7008C6FCC /* AppDelegate.swift */,
-				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
-				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
-				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
 				BAA446D321634DA8008C6FCC /* Info.plist */,
 			);
 			path = DaTracker;
@@ -163,6 +161,16 @@
 			);
 			name = UI;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		ED8D2AE2B5DCF669A1EC1262 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
+				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
+				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EE944F44A8A13D549B56DFCE /* Pods */ = {
