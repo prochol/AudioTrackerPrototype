@@ -36,13 +36,14 @@ class AVPlayerViewController: UIViewController {
 
         let urlAudioFile = URL.init(fileURLWithPath: audioFilePath!)
         do {
-            try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVFoundation.AVAudioSession.Mode.default)
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVFoundation.AVAudioSession.Mode.default)
             try audioSession.setActive(true)
 
             audioPlayer = try AVAudioPlayer.init(contentsOf: urlAudioFile)
             audioPlayer!.volume = 1.0
             audioPlayer!.delegate = self
-        } catch {
+        }
+        catch {
             let message = error.localizedDescription
 
             let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)

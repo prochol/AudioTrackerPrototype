@@ -70,7 +70,7 @@ class TrackerViewController: UIViewController {
                     if granted {
                         print("Microphone enable")
                         do {
-                            try self.audioSession.setCategory(AVAudioSession.Category.record, mode: AVFoundation.AVAudioSession.Mode.spokenAudio)
+                            try self.audioSession.setCategory(AVAudioSession.Category.playAndRecord, mode: AVFoundation.AVAudioSession.Mode.default)
                             try self.audioSession.setActive(true)
 
                             self.audioSession.requestRecordPermission() { [unowned self] allowed in
@@ -124,9 +124,12 @@ class TrackerViewController: UIViewController {
     // MARK: - private functions
 
     private func removeOldAudioFile() {
+        playerViewController?.audioFilePath = nil//For unblocking file
+        playerViewController?.makeAudioFile()
+
         let recordURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
-        let audioFileURL = recordURL.appendingPathComponent("recording.m4a")
+        let audioFileURL = recordURL.appendingPathComponent("recording.mp4")
 
         try? FileManager.default.removeItem(at: audioFileURL)
     }
@@ -140,12 +143,13 @@ class TrackerViewController: UIViewController {
 
         let recordURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
-        let audioFileURL = recordURL.appendingPathComponent("recording.m4a")
+        let audioFileURL = recordURL.appendingPathComponent("recording.mp4")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
+            AVSampleRateKey: 48000,
             AVNumberOfChannelsKey: 2,
+//            AVEncoderBitRateKey: 16,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
 
@@ -186,7 +190,7 @@ extension TrackerViewController: AVAudioRecorderDelegate {
         if flag {
             let recordURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
-            let audioFileURL = recordURL.appendingPathComponent("recording.m4a")
+            let audioFileURL = recordURL.appendingPathComponent("recording.mp4")
 
             playerViewController?.audioFilePath = audioFileURL.path
             playerViewController?.makeAudioFile()
