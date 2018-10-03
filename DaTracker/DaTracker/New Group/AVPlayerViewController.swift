@@ -17,6 +17,7 @@ class AVPlayerViewController: UIViewController {
 
     private let audioSession = AVAudioSession.sharedInstance()
     private var audioPlayer: AVAudioPlayer?
+    private var timer: Timer?
 
     var audioFilePath: String?
 
@@ -28,27 +29,14 @@ class AVPlayerViewController: UIViewController {
         self.slider.setThumbImage(UIImage.init(named: "SliderCircle"), for: .normal)
     }
 
-    @IBAction func playButtonTapped() {
-        if let audioPlayer = audioPlayer, audioPlayer.isPlaying {
-            audioPlayer.pause()
-        }
-        else {
-            audioPlayer?.play()
-        }
-
-        self.updatePlayButtonImage()
-    }
-
-    // MARK: - Private functions
-
-    private func makeAudioFile() {
+    func makeAudioFile() {
         if audioFilePath == nil {
             audioFilePath = Bundle.main.path(forResource: "sample", ofType: "mp3")
         }
 
         let urlAudioFile = URL.init(fileURLWithPath: audioFilePath!)
         do {
-            try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVFoundation.AVAudioSession.Mode.spokenAudio)
+            try audioSession.setCategory(AVAudioSession.Category.playback, mode: AVFoundation.AVAudioSession.Mode.default)
             try audioSession.setActive(true)
 
             audioPlayer = try AVAudioPlayer.init(contentsOf: urlAudioFile)
@@ -65,11 +53,47 @@ class AVPlayerViewController: UIViewController {
             audioPlayer = nil
         }
 
+        let totalPlaybackTime = audioPlayer != nil ? Float(audioPlayer!.duration) : 1.0
+
         slider.minimumValue = 0.0;
-        slider.maximumValue = audioPlayer != nil ? Float(audioPlayer!.duration) : 1.0
+        slider.maximumValue = totalPlaybackTime
+
+        let totalHours = Int(totalPlaybackTime / 3600)
+        let totalMinutes = Int(totalPlaybackTime / 60)  - totalHours * 60
+        let totalSeconds = Int(totalPlaybackTime) % 60
+
+        finishTimeLabel.text = totalHours > 0 ? String.init(format: "%i:%02d:%02d", totalHours, totalMinutes, totalSeconds) : String.init(format: "%02d:%02d", totalMinutes, totalSeconds)
 
         currentTimeLabel.text = self.calculateCurrentDuration()
         self.updatePlayButtonImage()
+    }
+
+    // MAKE: - Actions
+
+    @IBAction func playButtonTapped() {
+        if let audioPlayer = audioPlayer, audioPlayer.isPlaying {
+            audioPlayer.pause()
+
+            timer?.invalidate()
+        }
+        else {
+            audioPlayer?.play()
+
+            timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: {_ in
+                self.onTimer()
+            })
+        }
+
+        self.updatePlayButtonImage()
+    }
+
+    // MARK: - Private functions
+
+    private func onTimer() {
+        if let audioPlayer = audioPlayer {
+            slider.setValue(Float(audioPlayer.currentTime), animated: true)
+        }
+        currentTimeLabel.text = self.calculateCurrentDuration()
     }
 
     private func updatePlayButtonImage() {
@@ -86,8 +110,6 @@ extension AVPlayerViewController: AVAudioPlayerDelegate {
         self.slider.setValue(Float(player.currentTime), animated: true)
         self.currentTimeLabel.text = self.calculateCurrentDuration()
     }
-
-
 
     private func calculateCurrentDuration() -> String {
         guard let currentPlaybackTime = audioPlayer?.currentTime else {
