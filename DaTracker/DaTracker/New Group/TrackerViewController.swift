@@ -57,7 +57,7 @@ class TrackerViewController: UIViewController {
                 }
             }))
 
-            self.show(alert, sender: nil)
+            self.present(alert, animated: true)
         } else {
             if isRecording {
                 if audioRecorder == nil {
@@ -91,7 +91,7 @@ class TrackerViewController: UIViewController {
                             let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
-                            self.show(alert, sender: nil)
+                            self.present(alert, animated: true)
                         }
                     } else {
                         // Microphone disabled code
@@ -112,7 +112,7 @@ class TrackerViewController: UIViewController {
                             }
                         }))
 
-                        self.show(alert, sender: nil)
+                        self.present(alert, animated: true)
 
                         self.cancelRecording()
                     }
@@ -123,11 +123,21 @@ class TrackerViewController: UIViewController {
 
     // MARK: - private functions
 
+    private func removeOldAudioFile() {
+        let recordURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+        let audioFileURL = recordURL.appendingPathComponent("recording.m4a")
+
+        try? FileManager.default.removeItem(at: audioFileURL)
+    }
+
     private func cancelRecording() {
         audioRecorder?.stop()
     }
 
     private func startRecording() {
+        self.removeOldAudioFile()
+
         let recordURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         let audioFileURL = recordURL.appendingPathComponent("recording.m4a")
@@ -135,7 +145,7 @@ class TrackerViewController: UIViewController {
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
+            AVNumberOfChannelsKey: 2,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
 

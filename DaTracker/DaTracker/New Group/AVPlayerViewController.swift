@@ -40,7 +40,7 @@ class AVPlayerViewController: UIViewController {
             try audioSession.setActive(true)
 
             audioPlayer = try AVAudioPlayer.init(contentsOf: urlAudioFile)
-            audioPlayer!.volume = 0.5
+            audioPlayer!.volume = 1.0
             audioPlayer!.delegate = self
         } catch {
             let message = error.localizedDescription
@@ -48,7 +48,7 @@ class AVPlayerViewController: UIViewController {
             let alert = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
-            self.show(alert, sender: nil)
+            self.present(alert, animated: true)
 
             audioPlayer = nil
         }
@@ -109,6 +109,8 @@ extension AVPlayerViewController: AVAudioPlayerDelegate {
     public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         self.slider.setValue(Float(player.currentTime), animated: true)
         self.currentTimeLabel.text = self.calculateCurrentDuration()
+
+        self.updatePlayButtonImage()
     }
 
     private func calculateCurrentDuration() -> String {
