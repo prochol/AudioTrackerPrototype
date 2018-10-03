@@ -97,7 +97,56 @@
                     <view key="view" contentMode="scaleToFill" id="vLT-Id-yd1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uu-cP-gxi" userLabel="PlayButton">
+                                <rect key="frame" x="0.0" y="11" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="GJ8-gO-jrr"/>
+                                    <constraint firstAttribute="height" constant="50" id="Nyo-cV-ric"/>
+                                </constraints>
+                                <state key="normal" image="PlayerPlayButton">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XbA-fb-RsE">
+                                <rect key="frame" x="100.5" y="21" width="228.5" height="31"/>
+                                <color key="tintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gVv-mV-Mru"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="0.31764705879999999" green="0.72549019609999998" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXY-km-qvC">
+                                <rect key="frame" x="58" y="25.5" width="36.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cwP-Wg-4gm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.63921568630000003" green="0.67843137249999996" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-ML-YRA">
+                                <rect key="frame" x="335" y="25.5" width="32" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Cha-Rn-tic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.63921568630000003" green="0.67843137249999996" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VMO-ML-YRA" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="00S-tC-NRw"/>
+                            <constraint firstAttribute="trailing" secondItem="VMO-ML-YRA" secondAttribute="trailing" constant="8" id="5yq-Df-c8E"/>
+                            <constraint firstItem="VMO-ML-YRA" firstAttribute="leading" secondItem="XbA-fb-RsE" secondAttribute="trailing" constant="8" id="DNr-Sq-MMY"/>
+                            <constraint firstItem="XbA-fb-RsE" firstAttribute="leading" secondItem="MXY-km-qvC" secondAttribute="trailing" constant="8" id="SRg-Ri-1IC"/>
+                            <constraint firstItem="XbA-fb-RsE" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="b0f-jv-2QT"/>
+                            <constraint firstItem="MXY-km-qvC" firstAttribute="leading" secondItem="8uu-cP-gxi" secondAttribute="trailing" constant="8" id="eFT-n6-fAr"/>
+                            <constraint firstItem="8uu-cP-gxi" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="gmB-33-J3I"/>
+                            <constraint firstItem="8uu-cP-gxi" firstAttribute="leading" secondItem="vLT-Id-yd1" secondAttribute="leading" id="iR4-7Z-Ose"/>
+                            <constraint firstItem="MXY-km-qvC" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="kRk-XC-iqW"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XL7-lw-5WU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,5 +156,6 @@
     </scenes>
     <resources>
         <image name="PlayButton" width="55" height="55"/>
+        <image name="PlayerPlayButton" width="30" height="30"/>
     </resources>
 </document>
