@@ -21,6 +21,10 @@
 		BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD6E996226F07B400C5690F /* Fingerprinter.swift */; };
 		BAD6E9A9226F192E00C5690F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD6E9A8226F192E00C5690F /* libc++.tbd */; };
 		BAD6E9AB226F198500C5690F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD6E9AA226F198500C5690F /* Accelerate.framework */; };
+		BAD6E9B1226F1B1D00C5690F /* clip_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAD6E9AD226F1B1D00C5690F /* clip_1.mp4 */; };
+		BAD6E9B2226F1B1D00C5690F /* clip_0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAD6E9AE226F1B1D00C5690F /* clip_0.mp4 */; };
+		BAD6E9B3226F1B1D00C5690F /* clip_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAD6E9AF226F1B1D00C5690F /* clip_2.mp4 */; };
+		BAD6E9B4226F1B1D00C5690F /* audio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BAD6E9B0226F1B1D00C5690F /* audio.mp4 */; };
 		BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7359E216386D40054B7E3 /* AVFoundation.framework */; };
 		ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */; };
 		FE7B49D46020F4EE2EB10529 /* Pods_DaTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */; };
@@ -71,6 +75,10 @@
 		BAD6E999226F08B600C5690F /* DaTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DaTracker-Bridging-Header.h"; sourceTree = "<group>"; };
 		BAD6E9A8226F192E00C5690F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BAD6E9AA226F198500C5690F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BAD6E9AD226F1B1D00C5690F /* clip_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clip_1.mp4; sourceTree = "<group>"; };
+		BAD6E9AE226F1B1D00C5690F /* clip_0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clip_0.mp4; sourceTree = "<group>"; };
+		BAD6E9AF226F1B1D00C5690F /* clip_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = clip_2.mp4; sourceTree = "<group>"; };
+		BAD6E9B0226F1B1D00C5690F /* audio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.mp4; sourceTree = "<group>"; };
 		BAD7359E216386D40054B7E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,9 +203,21 @@
 			path = Frameworks/ChromaprintLib;
 			sourceTree = "<group>";
 		};
+		BAD6E9AC226F1B1D00C5690F /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				BAD6E9AD226F1B1D00C5690F /* clip_1.mp4 */,
+				BAD6E9AE226F1B1D00C5690F /* clip_0.mp4 */,
+				BAD6E9AF226F1B1D00C5690F /* clip_2.mp4 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
 		ED8D2AE2B5DCF669A1EC1262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAD6E9AC226F1B1D00C5690F /* audio */,
+				BAD6E9B0226F1B1D00C5690F /* audio.mp4 */,
 				BA6315F52164B2E20071DE9F /* sample.mp3 */,
 				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
 				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
@@ -328,10 +348,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD6E9B2226F1B1D00C5690F /* clip_0.mp4 in Resources */,
 				BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */,
+				BAD6E9B4226F1B1D00C5690F /* audio.mp4 in Resources */,
+				BAD6E9B3226F1B1D00C5690F /* clip_2.mp4 in Resources */,
 				BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */,
 				BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */,
 				BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */,
+				BAD6E9B1226F1B1D00C5690F /* clip_1.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

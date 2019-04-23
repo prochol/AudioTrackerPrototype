@@ -27,6 +27,9 @@ class TrackerViewController: UIViewController {
         self.title = "DaTracker"
 
         playerContainerBottomConstraint.constant = 72
+        
+        
+        
     }
 
     // MARK: - Navigation
