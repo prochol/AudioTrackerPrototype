@@ -17,6 +17,10 @@
 		BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */; };
 		BAA446DD21634DA8008C6FCC /* DaTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446DC21634DA8008C6FCC /* DaTrackerTests.swift */; };
 		BAA446E821634DA8008C6FCC /* DaTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */; };
+		BAD6E997226F07B400C5690F /* libchromaprint.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD6E994226F07B400C5690F /* libchromaprint.a */; };
+		BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD6E996226F07B400C5690F /* Fingerprinter.swift */; };
+		BAD6E9A9226F192E00C5690F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD6E9A8226F192E00C5690F /* libc++.tbd */; };
+		BAD6E9AB226F198500C5690F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD6E9AA226F198500C5690F /* Accelerate.framework */; };
 		BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD7359E216386D40054B7E3 /* AVFoundation.framework */; };
 		ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */; };
 		FE7B49D46020F4EE2EB10529 /* Pods_DaTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */; };
@@ -61,6 +65,12 @@
 		BAA446E321634DA8008C6FCC /* DaTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446E721634DA8008C6FCC /* DaTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaTrackerUITests.swift; sourceTree = "<group>"; };
 		BAA446E921634DA8008C6FCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAD6E994226F07B400C5690F /* libchromaprint.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchromaprint.a; sourceTree = "<group>"; };
+		BAD6E995226F07B400C5690F /* chromaprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chromaprint.h; sourceTree = "<group>"; };
+		BAD6E996226F07B400C5690F /* Fingerprinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fingerprinter.swift; sourceTree = "<group>"; };
+		BAD6E999226F08B600C5690F /* DaTracker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DaTracker-Bridging-Header.h"; sourceTree = "<group>"; };
+		BAD6E9A8226F192E00C5690F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		BAD6E9AA226F198500C5690F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		BAD7359E216386D40054B7E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CA1723BDBE354BA8FFEDE6F7 /* Pods-DaTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBF8FA98092912AC2B1EC79A /* Pods-DaTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,7 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD6E9AB226F198500C5690F /* Accelerate.framework in Frameworks */,
+				BAD6E9A9226F192E00C5690F /* libc++.tbd in Frameworks */,
 				BAD7359F216386D40054B7E3 /* AVFoundation.framework in Frameworks */,
+				BAD6E997226F07B400C5690F /* libchromaprint.a in Frameworks */,
 				B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,7 +112,10 @@
 		68F8D3A7B5B43CCAD35A798C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAD6E993226F07B400C5690F /* ChromaprintLib */,
 				BAD7359E216386D40054B7E3 /* AVFoundation.framework */,
+				BAD6E9AA226F198500C5690F /* Accelerate.framework */,
+				BAD6E9A8226F192E00C5690F /* libc++.tbd */,
 				5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */,
 				1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */,
 				2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */,
@@ -136,6 +152,7 @@
 				BAA446F521635A15008C6FCC /* UI */,
 				BAA446C721634DA7008C6FCC /* AppDelegate.swift */,
 				BAA446D321634DA8008C6FCC /* Info.plist */,
+				BAD6E999226F08B600C5690F /* DaTracker-Bridging-Header.h */,
 			);
 			path = DaTracker;
 			sourceTree = "<group>";
@@ -164,8 +181,18 @@
 				BAA446C921634DA7008C6FCC /* TrackerViewController.swift */,
 				ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */,
 			);
-			name = UI;
-			path = "New Group";
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BAD6E993226F07B400C5690F /* ChromaprintLib */ = {
+			isa = PBXGroup;
+			children = (
+				BAD6E994226F07B400C5690F /* libchromaprint.a */,
+				BAD6E995226F07B400C5690F /* chromaprint.h */,
+				BAD6E996226F07B400C5690F /* Fingerprinter.swift */,
+			);
+			name = ChromaprintLib;
+			path = Frameworks/ChromaprintLib;
 			sourceTree = "<group>";
 		};
 		ED8D2AE2B5DCF669A1EC1262 /* Resources */ = {
@@ -203,6 +230,7 @@
 				BAA446C021634DA7008C6FCC /* Sources */,
 				BAA446C121634DA7008C6FCC /* Frameworks */,
 				BAA446C221634DA7008C6FCC /* Resources */,
+				BE7A87251B57BB747AF517C3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -368,6 +396,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BE7A87251B57BB747AF517C3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DaTracker/Pods-DaTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaTracker/Pods-DaTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F57FB36C80EFD815AB3C6BBA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
+				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
 				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
 			);
@@ -509,8 +560,13 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "DaTracker/DaTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -563,8 +619,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "DaTracker/DaTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -582,6 +643,17 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/ChromaprintLib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"Zip\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -602,6 +674,17 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/ChromaprintLib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"z\"",
+					"-framework",
+					"\"Zip\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaikagroup.DaTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
