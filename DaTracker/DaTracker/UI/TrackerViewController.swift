@@ -30,11 +30,15 @@ class TrackerViewController: UIViewController {
         
         
         DispatchQueue.global(qos: .userInitiated).async {
+            
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+            
             var audioFileFingerprintString = String()
             var audioFileFingerprintInt = [Int]()
             
-            if let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp4") {
-                if let audioFileURL = URL.init(string: audioFilePath) {
+//            if let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp4") {
+//                if let audioFileURL = URL.init(string: audioFilePath) {
+            let audioFileURL = documentsUrl.appendingPathComponent("audio.mp4")
                     if FileManager.default.fileExists(atPath: audioFileURL.path) {
                         guard let (audioFingerprintString, durationAudio) = generateFingerprint(fromSongAtUrl: audioFileURL) else {
                             print("No fingerprint was generated")
@@ -56,16 +60,17 @@ class TrackerViewController: UIViewController {
                         print("audio Fingerprint Int: \(audioFileFingerprintInt)")
                         
                     }
-                }
-            }
-                
+//                }
+//            }
+            
             var clipFingerprintString = String()
             var clipFingerprintInt = [Int]()
             
-            if let audioClip2FilePath = Bundle.main.path(forResource: "clip_2", ofType: "mp4") {
-                if let audioClip2FileURL = URL.init(string: audioClip2FilePath) {
-                    if FileManager.default.fileExists(atPath: audioClip2FileURL.path) {
-                        guard let (audioFingerprintString, durationAudio) = generateFingerprint(fromSongAtUrl: audioClip2FileURL) else {
+//            if let audioClipPath = Bundle.main.path(forResource: "clip_2", ofType: "mp4") {
+//                if let audioClipURL = URL.init(string: audioClip2FilePath) {
+                     let audioClipURL = documentsUrl.appendingPathComponent("audio/clip_0.mp4")
+                    if FileManager.default.fileExists(atPath: audioClipURL.path) {
+                        guard let (audioFingerprintString, durationAudio) = generateFingerprint(fromSongAtUrl: audioClipURL) else {
                             print("No fingerprint was generated")
                             return
                         }
@@ -84,8 +89,8 @@ class TrackerViewController: UIViewController {
                         
                         print("audio clip_2 Fingerprint Int: \(clipFingerprintInt)")
                     }
-                }
-            }
+//                }
+//            }
             
             var substring = ""
             var maxSubstringLocation: Range<String.Index>?
@@ -131,7 +136,6 @@ class TrackerViewController: UIViewController {
             
             print("matrix difference count elements: \(differenceArrays.count)")
             
-            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
             do {
                 let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
                 
