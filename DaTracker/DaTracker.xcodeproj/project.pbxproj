@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		951C1EF8479C49B1367C0CDF /* Pods_DaTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */; };
 		B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */; };
+		BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
 		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
@@ -55,6 +56,7 @@
 		6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTracker/Pods-DaTracker.release.xcconfig"; sourceTree = "<group>"; };
 		7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaRecorderController.swift; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BA2DB825226FF5AB00F88D57 /* BL */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */,
+			);
+			path = BL;
+			sourceTree = "<group>";
+		};
 		BAA446BB21634DA7008C6FCC = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +166,7 @@
 		BAA446C621634DA7008C6FCC /* DaTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BA2DB825226FF5AB00F88D57 /* BL */,
 				ED8D2AE2B5DCF669A1EC1262 /* Resources */,
 				BAA446F521635A15008C6FCC /* UI */,
 				BAA446C721634DA7008C6FCC /* AppDelegate.swift */,
@@ -473,6 +484,7 @@
 			files = (
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
 				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
+				BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
 				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
 			);

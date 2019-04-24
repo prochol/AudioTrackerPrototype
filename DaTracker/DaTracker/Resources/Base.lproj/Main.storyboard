@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cJa-q7-1zo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cJa-q7-1zo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,14 +68,49 @@
                                     <constraint firstItem="GfQ-yg-4Sm" firstAttribute="top" secondItem="Hdx-Ks-CJv" secondAttribute="top" constant="10" id="zWO-jq-LMi"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmM-Jg-jqH">
+                                <rect key="frame" x="16" y="494" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVR-Jx-bjI">
+                                <rect key="frame" x="16" y="88" width="98" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PE4-Fv-Wg9"/>
+                                    <constraint firstAttribute="width" constant="98" id="RHb-D6-B5p"/>
+                                </constraints>
+                                <state key="normal" title="Start Export"/>
+                                <connections>
+                                    <action selector="startExportTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEx-xG-hQW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZs-c2-l3r">
+                                <rect key="frame" x="261" y="88" width="98" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="SDa-Sy-pd1"/>
+                                    <constraint firstAttribute="height" constant="30" id="UjJ-Wf-5Gm"/>
+                                </constraints>
+                                <state key="normal" title="Fingerprints"/>
+                                <connections>
+                                    <action selector="startFingerprintsTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pZR-2g-Kyh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="eZs-c2-l3r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="0Jl-50-bIh"/>
                             <constraint firstItem="DoU-4c-i0B" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3Un-Dh-yyH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cmM-Jg-jqH" secondAttribute="trailing" constant="16" id="BAt-fk-j5b"/>
+                            <constraint firstItem="cmM-Jg-jqH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Bgy-eu-w8U"/>
                             <constraint firstItem="Hdx-Ks-CJv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="CR5-Xf-l4D"/>
+                            <constraint firstItem="KVR-Jx-bjI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nxh-r2-wDa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eZs-c2-l3r" secondAttribute="trailing" constant="16" id="SKl-hM-PnQ"/>
                             <constraint firstItem="Hdx-Ks-CJv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XN7-d2-APH"/>
                             <constraint firstItem="Hdx-Ks-CJv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="n8a-60-MIQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DoU-4c-i0B" secondAttribute="bottom" id="prW-ZN-Mx0"/>
+                            <constraint firstItem="KVR-Jx-bjI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="tO3-gP-8n1"/>
+                            <constraint firstItem="DoU-4c-i0B" firstAttribute="top" secondItem="cmM-Jg-jqH" secondAttribute="bottom" constant="80" id="u5U-E5-I4v"/>
                             <constraint firstItem="DoU-4c-i0B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u6g-r4-Htk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -84,6 +119,7 @@
                     <connections>
                         <outlet property="playerContainerBottomConstraint" destination="prW-ZN-Mx0" id="42X-hR-7i8"/>
                         <outlet property="recordButton" destination="GfQ-yg-4Sm" id="oLD-bA-gQv"/>
+                        <outlet property="statusLabel" destination="cmM-Jg-jqH" id="q3o-DP-gaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -150,6 +186,7 @@
                             <constraint firstItem="8uu-cP-gxi" firstAttribute="leading" secondItem="vLT-Id-yd1" secondAttribute="leading" id="iR4-7Z-Ose"/>
                             <constraint firstItem="MXY-km-qvC" firstAttribute="centerY" secondItem="vLT-Id-yd1" secondAttribute="centerY" id="kRk-XC-iqW"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="we3-TJ-WCg"/>
                     </view>
                     <connections>
                         <outlet property="currentTimeLabel" destination="MXY-km-qvC" id="LtM-2v-dHL"/>
