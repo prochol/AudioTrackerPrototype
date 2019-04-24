@@ -157,7 +157,7 @@ class TrackerViewController: UIViewController {
         }
         
 //        let trim = (TimeInterval(10.0 + 0.124 * 2), TimeInterval(9.0))
-        let trim = (TimeInterval(10.0 + 1.0), TimeInterval(9.0))
+        let trim = (TimeInterval(10.0), TimeInterval(3 * 60.0))
         
         MediaRecorderController().saveMedia(of: mediaURL, to: outputURL, trim: trim) { status in
             if status == .completed {
@@ -342,7 +342,7 @@ class TrackerViewController: UIViewController {
             
             //            if let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp4") {
             //                if let audioFileURL = URL.init(string: audioFilePath) {
-            let audioFileURL = documentsUrl.appendingPathComponent("audio.mp4")
+            let audioFileURL = documentsUrl.appendingPathComponent("video.mp4")
             if FileManager.default.fileExists(atPath: audioFileURL.path) {
                 guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioFileURL) else {
                     print("No fingerprint was generated")
@@ -448,24 +448,33 @@ class TrackerViewController: UIViewController {
             
             do {
                 let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
+                let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceArraysBinary", isDirectory: false)
                 
                 var string = String()
+                var stringBinary = String()
+                
                 for indexDifferenceArray in 0..<differenceArrays.count {
                     if let differenceArray = differenceArrays[indexDifferenceArray] {
                         var differenceArrayString = "["
+                        var differenceArrayBinaryString = "["
+                        
                         for indexDifference in 0..<differenceArray.count {
                             let differenceElem = differenceArray[indexDifference]
                             
                             if indexDifference < differenceArray.count - 1 {
-                                differenceArrayString = differenceArrayString + String(fullBinary: differenceElem) + ", "
+                                differenceArrayString = differenceArrayString + String(differenceElem) + ", "
+                                differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem) + ", "
                             }
                             else {
-                                differenceArrayString = differenceArrayString + String(fullBinary: differenceElem)
+                                differenceArrayString = differenceArrayString + String(differenceElem)
+                                differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem)
                             }
                         }
                         differenceArrayString = differenceArrayString + "]"
+                        differenceArrayBinaryString = differenceArrayBinaryString + "]"
                         
                         string = string + differenceArrayString + "\n"
+                        stringBinary = stringBinary + differenceArrayBinaryString + "\n"
                     }
                     
                     if indexDifferenceArray.isMultiple(of: 50) {
@@ -474,6 +483,7 @@ class TrackerViewController: UIViewController {
                 }
                 
                 try string.write(to: differenceUrl, atomically: true, encoding: String.Encoding.utf8)
+                try stringBinary.write(to: differenceBinaryUrl, atomically: true, encoding: String.Encoding.utf8)
                 
                 print("differenceArrays saved in \(differenceUrl.absoluteString)")
                 

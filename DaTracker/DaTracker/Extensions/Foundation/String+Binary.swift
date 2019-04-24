@@ -11,7 +11,7 @@ import Foundation
 extension String {
     init<B: FixedWidthInteger>(fullBinary value: B) {
         self = value.words.reduce(into: "") {
-            if value > 0 {
+            if value >= 0 {
                 $0.append(contentsOf: repeatElement("0", count: $1.leadingZeroBitCount - value.bitWidth))
                 $0.append(String($1, radix: 2))
             }
