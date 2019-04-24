@@ -59,7 +59,7 @@ class TrackerViewController: UIViewController {
     
     
     @IBAction func startFingerprintsTapped() {
-        self.startFingerprints()
+        self.startFingerprintsRaw()
     }
     
     
@@ -187,7 +187,7 @@ class TrackerViewController: UIViewController {
         }
     }
     
-    private func startFingerprints() {
+    private func startFingerprintsString() {
         DispatchQueue.global(qos: .userInitiated).async {
             
             let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
@@ -271,6 +271,150 @@ class TrackerViewController: UIViewController {
             
             print("maxSubstring: \(maxSubstring)")
             print("rangeMaxSubstring: \(maxSubstringLocation)")
+            
+            var differenceArrays = [Int: [Int]]()
+            var index = 0
+            while index < audioFileFingerprintInt.count {
+                //                let clipFingerprintElem = clipFingerprintInt[index]
+                
+                var differenceArray = [Int]()
+                
+                var clipIndex = 0
+                while clipIndex < clipFingerprintInt.count {
+                    let clipFingerprintElem = clipFingerprintInt[clipIndex]
+                    let audioFingerprintElem = index + clipIndex < audioFileFingerprintInt.count ? audioFileFingerprintInt[index + clipIndex] : 0
+                    let differenceElem = audioFingerprintElem - clipFingerprintElem
+                    differenceArray.append(differenceElem)
+                    
+                    clipIndex += 1
+                }
+                
+                differenceArrays[index] = differenceArray
+                index += 1
+            }
+            
+            print("matrix difference count elements: \(differenceArrays.count)")
+            
+            do {
+                let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
+                
+                var string = String()
+                for indexDifferenceArray in 0..<differenceArrays.count {
+                    if let differenceArray = differenceArrays[indexDifferenceArray] {
+                        var differenceArrayString = "["
+                        for indexDifference in 0..<differenceArray.count {
+                            let differenceElem = differenceArray[indexDifference]
+                            
+                            differenceArrayString = differenceArrayString + String(differenceElem) + ", "
+                        }
+                        differenceArrayString = differenceArrayString + "]"
+                        
+                        string = string + differenceArrayString + "\n"
+                    }
+                    
+                    if indexDifferenceArray.isMultiple(of: 50) {
+                        print("create string for differenceArray with index: \(indexDifferenceArray)")
+                    }
+                }
+                
+                try string.write(to: differenceUrl, atomically: true, encoding: String.Encoding.utf8)
+                
+                print("differenceArrays saved in \(differenceUrl.absoluteString)")
+                
+                DispatchQueue.main.async {
+                    self.statusLabel.text = "Fingerprints status complete"
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func startFingerprintsRaw() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+            
+            var audioFileFingerprintString = String()
+            var audioFileFingerprintInt = [Int]()
+            
+            //            if let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp4") {
+            //                if let audioFileURL = URL.init(string: audioFilePath) {
+            let audioFileURL = documentsUrl.appendingPathComponent("video.mp4")
+            if FileManager.default.fileExists(atPath: audioFileURL.path) {
+                guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioFileURL) else {
+                    print("No fingerprint was generated")
+                    return
+                }
+                
+                audioFileFingerprintInt = audioFingerprintInt
+
+                print("The audio duration is \(durationAudio)")
+                print("The audio fingerprint is: \(audioFingerprintInt)")
+                print("The audio fingerprint long: \(audioFingerprintInt.count)")
+//
+//                let audioFingerprintScalars = audioFingerprintString.unicodeScalars
+//
+//                for scalar in audioFingerprintScalars {
+//                    audioFileFingerprintInt.append(Int(scalar.value))
+//                }
+                
+                print("audio Fingerprint Int: \(audioFileFingerprintInt)")
+                
+            }
+            //                }
+            //            }
+            
+            var clipFingerprintString = String()
+            var clipFingerprintInt = [Int]()
+            
+            //            if let audioClipPath = Bundle.main.path(forResource: "clip_2", ofType: "mp4") {
+            //                if let audioClipURL = URL.init(string: audioClip2FilePath) {
+            let audioClipURL = documentsUrl.appendingPathComponent("output2.mp4")
+            if FileManager.default.fileExists(atPath: audioClipURL.path) {
+                guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
+                    print("No fingerprint was generated")
+                    return
+                }
+                
+                clipFingerprintInt = audioFingerprintInt
+
+                print("The audio clip duration is \(durationAudio)")
+                print("The audio clip fingerprint is: \(audioFingerprintInt)")
+                print("The audio clip fingerprint long: \(audioFingerprintInt.count)")
+
+//                let audioFingerprintScalars = audioFingerprintString.unicodeScalars
+//
+//                for scalar in audioFingerprintScalars {
+//                    clipFingerprintInt.append(Int(scalar.value))
+//                }
+                
+                print("audio clip Fingerprint Int: \(clipFingerprintInt)")
+            }
+            //                }
+            //            }
+            
+//            var substring = ""
+//            var maxSubstringLocation: Range<String.Index>?
+//            var maxSubstring = ""
+//
+//            for audioFingerprintStringChar in audioFileFingerprintString {
+//                substring = substring + String(audioFingerprintStringChar)
+//
+//                if let range = clipFingerprintString.range(of: substring) {
+//                    if maxSubstring.count < substring.count {
+//                        maxSubstring = substring
+//                        maxSubstringLocation = range
+//                    }
+//                }
+//                else {
+//                    substring = ""
+//                }
+//            }
+            
+//            print("maxSubstring: \(maxSubstring)")
+//            print("rangeMaxSubstring: \(maxSubstringLocation)")
             
             var differenceArrays = [Int: [Int]]()
             var index = 0

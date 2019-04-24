@@ -175,3 +175,59 @@ private func decodeAudio(
     chromaprint_finish(context)
     return durationInSeconds
 }
+
+func generateFingerprintRaw(fromSongAtUrl songUrl : URL) -> ([Int], Double)? {
+    
+    /// Set the maximum number of seconds we're going to use for fingerprinting
+    let maxLength = 120
+    
+    /** Create a single instance of an unsafe mutable Int8 pointer so we can
+     pass it to chromaprint_get_fingerprint without errors.
+     The defer ensures it is not leaked if we drop out early.
+     */
+    var fingerprint: UnsafeMutablePointer<UnsafeMutableRawPointer?>? = UnsafeMutablePointer<UnsafeMutableRawPointer?>.allocate(capacity: 1)
+    
+    defer {
+        fingerprint?.deinitialize(count: 1)// deinitialize()
+        fingerprint?.deallocate()// deallocate(capacity: 1)
+    }
+    
+    /// Start by creating a chromaprint context.
+    /// Not sure why CHROMAPRINT_ALGORITHM_DEFAULT isn't defined here.
+    let algo = Int32(CHROMAPRINT_ALGORITHM_TEST2.rawValue)
+    guard let chromaprintContext = chromaprint_new(algo) else { return nil }
+    
+    /// Decode the song and get back its duration.
+    /// The chromaprintContext will contain the fingerprint.
+    let duration = decodeAudio(songUrl, withMaxLength: maxLength, forContext: chromaprintContext)
+    
+    /** Make a fingerprint from the song data.
+     (Note we can also get a hash back with chromprint_get_fingerprint_hash)
+     */
+    
+    var size: Int32 = 0
+    
+    if chromaprint_get_raw_fingerprint(chromaprintContext, fingerprint, &size) == 0 {
+        print("Error: could not get fingerprint")
+        return nil
+    }
+    
+    chromaprint_dealloc(chromaprintContext)
+    
+    var fingerprintInt = [Int]()
+    
+    for index in 0..<Int(size) {
+        if let fingerprintPointee = fingerprint?.pointee {
+            let offsetPointer = fingerprintPointee + 4 * index//Смещение по 4 байта
+            
+            let value = offsetPointer.load(as: Int32.self)
+            
+            let intValue = Int(value)
+            
+            fingerprintInt.append(intValue)
+        }
+    }
+    
+    return (fingerprintInt, duration)
+}
+
