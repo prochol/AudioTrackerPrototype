@@ -176,7 +176,7 @@ private func decodeAudio(
     return durationInSeconds
 }
 
-func generateFingerprintRaw(fromSongAtUrl songUrl : URL) -> ([Int], Double)? {
+func generateFingerprintRaw(fromSongAtUrl songUrl : URL) -> ([Int32], Double)? {
     
     /// Set the maximum number of seconds we're going to use for fingerprinting
     let maxLength = 120
@@ -214,7 +214,7 @@ func generateFingerprintRaw(fromSongAtUrl songUrl : URL) -> ([Int], Double)? {
     
     chromaprint_dealloc(chromaprintContext)
     
-    var fingerprintInt = [Int]()
+    var fingerprintInt = [Int32]()
     
     for index in 0..<Int(size) {
         if let fingerprintPointee = fingerprint?.pointee {
@@ -222,9 +222,7 @@ func generateFingerprintRaw(fromSongAtUrl songUrl : URL) -> ([Int], Double)? {
             
             let value = offsetPointer.load(as: Int32.self)
             
-            let intValue = Int(value)
-            
-            fingerprintInt.append(intValue)
+            fingerprintInt.append(value)
         }
     }
     
