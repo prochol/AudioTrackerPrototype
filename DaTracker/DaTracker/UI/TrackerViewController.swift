@@ -337,11 +337,8 @@ class TrackerViewController: UIViewController {
             
             let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
             
-            var audioFileFingerprintString = String()
             var audioFileFingerprintInt = [Int32]()
             
-            //            if let audioFilePath = Bundle.main.path(forResource: "audio", ofType: "mp4") {
-            //                if let audioFileURL = URL.init(string: audioFilePath) {
             let audioFileURL = documentsUrl.appendingPathComponent("video.mp4")
             if FileManager.default.fileExists(atPath: audioFileURL.path) {
                 guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioFileURL) else {
@@ -352,26 +349,11 @@ class TrackerViewController: UIViewController {
                 audioFileFingerprintInt = audioFingerprintInt
 
                 print("The audio duration is \(durationAudio)")
-                print("The audio fingerprint is: \(audioFingerprintInt)")
                 print("The audio fingerprint long: \(audioFingerprintInt.count)")
-//
-//                let audioFingerprintScalars = audioFingerprintString.unicodeScalars
-//
-//                for scalar in audioFingerprintScalars {
-//                    audioFileFingerprintInt.append(Int(scalar.value))
-//                }
-                
-                print("audio Fingerprint Int: \(audioFileFingerprintInt)")
-                
             }
-            //                }
-            //            }
             
-            var clipFingerprintString = String()
             var clipFingerprintInt = [Int32]()
             
-            //            if let audioClipPath = Bundle.main.path(forResource: "clip_2", ofType: "mp4") {
-            //                if let audioClipURL = URL.init(string: audioClip2FilePath) {
             let audioClipURL = documentsUrl.appendingPathComponent("audio/clip_0.mp4")
             if FileManager.default.fileExists(atPath: audioClipURL.path) {
                 guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
@@ -382,118 +364,98 @@ class TrackerViewController: UIViewController {
                 clipFingerprintInt = audioFingerprintInt
 
                 print("The audio clip duration is \(durationAudio)")
-                print("The audio clip fingerprint is: \(audioFingerprintInt)")
                 print("The audio clip fingerprint long: \(audioFingerprintInt.count)")
-
-//                let audioFingerprintScalars = audioFingerprintString.unicodeScalars
-//
-//                for scalar in audioFingerprintScalars {
-//                    clipFingerprintInt.append(Int(scalar.value))
-//                }
-                
-                print("audio clip Fingerprint Int: \(clipFingerprintInt)")
             }
-            //                }
-            //            }
             
-//            var substring = ""
-//            var maxSubstringLocation: Range<String.Index>?
-//            var maxSubstring = ""
-//
-//            for audioFingerprintStringChar in audioFileFingerprintString {
-//                substring = substring + String(audioFingerprintStringChar)
-//
-//                if let range = clipFingerprintString.range(of: substring) {
-//                    if maxSubstring.count < substring.count {
-//                        maxSubstring = substring
-//                        maxSubstringLocation = range
-//                    }
-//                }
-//                else {
-//                    substring = ""
-//                }
-//            }
+            let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: audioFileFingerprintInt)
             
-//            print("maxSubstring: \(maxSubstring)")
-//            print("rangeMaxSubstring: \(maxSubstringLocation)")
+            self.saveDifferenceInFile(differenceMatrix: differenceArrays)
+        }
+    }
+    
+    private func generateDifference(clipFingerprintRaw: [Int32], audioFingerprintRaw: [Int32]) -> [Int: [Int32]] {
+        var differenceArrays = [Int: [Int32]]()
+        var index = 0
+        while index < audioFingerprintRaw.count {
+            var differenceArray = [Int32]()
             
-            var differenceArrays = [Int: [Int32]]()
-            var index = 0
-            while index < audioFileFingerprintInt.count {
-                var differenceArray = [Int32]()
+            if index > 0 {
+                differenceArray.append(contentsOf: audioFingerprintRaw[0..<index])
+            }
+            
+            var clipIndex = 0
+            while clipIndex < clipFingerprintRaw.count {
+                let clipFingerprintElem = clipFingerprintRaw[clipIndex]
+                let audioFingerprintElem = index + clipIndex < audioFingerprintRaw.count ? audioFingerprintRaw[index + clipIndex] : 0
+                let differenceElem = audioFingerprintElem ^ clipFingerprintElem
+                differenceArray.append(differenceElem)
                 
-                if index > 0 {
-                    differenceArray.append(contentsOf: audioFileFingerprintInt[0..<index])
-                }
-                
-                var clipIndex = 0
-                while clipIndex < clipFingerprintInt.count {
-                    let clipFingerprintElem = clipFingerprintInt[clipIndex]
-                    let audioFingerprintElem = index + clipIndex < audioFileFingerprintInt.count ? audioFileFingerprintInt[index + clipIndex] : 0
-                    let differenceElem = audioFingerprintElem ^ clipFingerprintElem
-                    differenceArray.append(differenceElem)
+                clipIndex += 1
+            }
+            
+            if index + clipIndex < audioFingerprintRaw.count {
+                differenceArray.append(contentsOf: audioFingerprintRaw[(index + clipIndex)...(audioFingerprintRaw.count - 1)])
+            }
+            
+            differenceArrays[index] = differenceArray
+            index += 1
+        }
+        
+        print("matrix difference count elements: \(differenceArrays.count)")
+        
+        return differenceArrays
+    }
+    
+    private func saveDifferenceInFile(differenceMatrix: [Int: [Int32]]) {
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+        
+        do {
+            let differenceUrl = documentsUrl.appendingPathComponent("differenceMatrix", isDirectory: false)
+            let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceMatrixBinary", isDirectory: false)
+            
+            var string = String()
+            var stringBinary = String()
+            
+            for indexDifferenceArray in 0..<differenceMatrix.count {
+                if let differenceArray = differenceMatrix[indexDifferenceArray] {
+                    var differenceArrayString = "["
+                    var differenceArrayBinaryString = "["
                     
-                    clipIndex += 1
-                }
-                
-                if index + clipIndex < audioFileFingerprintInt.count {
-                    differenceArray.append(contentsOf: audioFileFingerprintInt[(index + clipIndex)...(audioFileFingerprintInt.count - 1)])
-                }
-                
-                differenceArrays[index] = differenceArray
-                index += 1
-            }
-            
-            print("matrix difference count elements: \(differenceArrays.count)")
-            
-            do {
-                let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
-                let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceArraysBinary", isDirectory: false)
-                
-                var string = String()
-                var stringBinary = String()
-                
-                for indexDifferenceArray in 0..<differenceArrays.count {
-                    if let differenceArray = differenceArrays[indexDifferenceArray] {
-                        var differenceArrayString = "["
-                        var differenceArrayBinaryString = "["
+                    for indexDifference in 0..<differenceArray.count {
+                        let differenceElem = differenceArray[indexDifference]
                         
-                        for indexDifference in 0..<differenceArray.count {
-                            let differenceElem = differenceArray[indexDifference]
-                            
-                            if indexDifference < differenceArray.count - 1 {
-                                differenceArrayString = differenceArrayString + String(differenceElem) + ", "
-                                differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem) + ", "
-                            }
-                            else {
-                                differenceArrayString = differenceArrayString + String(differenceElem)
-                                differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem)
-                            }
+                        if indexDifference < differenceArray.count - 1 {
+                            differenceArrayString = differenceArrayString + String(differenceElem) + ", "
+                            differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem) + ", "
                         }
-                        differenceArrayString = differenceArrayString + "]"
-                        differenceArrayBinaryString = differenceArrayBinaryString + "]"
-                        
-                        string = string + differenceArrayString + "\n"
-                        stringBinary = stringBinary + differenceArrayBinaryString + "\n"
+                        else {
+                            differenceArrayString = differenceArrayString + String(differenceElem)
+                            differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem)
+                        }
                     }
+                    differenceArrayString = differenceArrayString + "]"
+                    differenceArrayBinaryString = differenceArrayBinaryString + "]"
                     
-                    if indexDifferenceArray.isMultiple(of: 50) {
-                        print("create string for differenceArray with index: \(indexDifferenceArray)")
-                    }
+                    string = string + differenceArrayString + "\n"
+                    stringBinary = stringBinary + differenceArrayBinaryString + "\n"
                 }
                 
-                try string.write(to: differenceUrl, atomically: true, encoding: String.Encoding.utf8)
-                try stringBinary.write(to: differenceBinaryUrl, atomically: true, encoding: String.Encoding.utf8)
-                
-                print("differenceArrays saved in \(differenceUrl.absoluteString)")
-                
-                DispatchQueue.main.async {
-                    self.statusLabel.text = "Fingerprints status complete"
+                if indexDifferenceArray.isMultiple(of: 50) {
+                    print("create string for differenceArray with index: \(indexDifferenceArray)")
                 }
             }
-            catch {
-                print(error.localizedDescription)
+            
+            try string.write(to: differenceUrl, atomically: true, encoding: String.Encoding.utf8)
+            try stringBinary.write(to: differenceBinaryUrl, atomically: true, encoding: String.Encoding.utf8)
+            
+            print("differenceArrays saved in \(differenceUrl.absoluteString)")
+            
+            DispatchQueue.main.async {
+                self.statusLabel.text = "Fingerprints status complete"
             }
+        }
+        catch {
+            print(error.localizedDescription)
         }
     }
     
