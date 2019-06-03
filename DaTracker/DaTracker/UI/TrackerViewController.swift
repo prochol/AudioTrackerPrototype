@@ -157,7 +157,7 @@ class TrackerViewController: UIViewController {
         }
         
 //        let trim = (TimeInterval(10.0 + 0.124 * 2), TimeInterval(9.0))
-        let trim = (TimeInterval(10.0), TimeInterval(3 * 60.0))
+        let trim = (TimeInterval(57.0), TimeInterval(24.8))
         
         MediaRecorderController().saveMedia(of: mediaURL, to: outputURL, trim: trim) { status in
             if status == .completed {
@@ -341,6 +341,31 @@ class TrackerViewController: UIViewController {
             
             let audioFileURL = documentsUrl.appendingPathComponent("video.mp4")
             if FileManager.default.fileExists(atPath: audioFileURL.path) {
+                
+                var detective = LBAudioDetectiveNew()
+                
+                var fingerprint: LBAudioDetectiveFingerprintRef? = nil
+                
+                print("Start Detective Compare Audio")
+                
+                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioFileURL, &fingerprint)
+                print("recognize status: \(detectiveStatus)")
+                
+                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
+                print("detective length: \(length)")
+
+//                let recognizeStatus = LBAudioDetectiveCompareAudioURLs(detective, audioFileURL, mp4VideoOutputURL, 0, &match)
+//                print("The files are equal to a percentage of \(match)")
+
+                
+                LBAudioDetectiveFingerprintDispose(fingerprint)
+                print("Dispose fingerprint")
+                
+                let disposeStatus = LBAudioDetectiveDispose(detective)
+                print("Dispose detective status: \(disposeStatus)")
+                
+                
+                
                 guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioFileURL) else {
                     print("No fingerprint was generated")
                     return
@@ -354,7 +379,7 @@ class TrackerViewController: UIViewController {
             
             var clipFingerprintInt = [Int32]()
             
-            let audioClipURL = documentsUrl.appendingPathComponent("audio/clip_0.mp4")
+            let audioClipURL = documentsUrl.appendingPathComponent("audio/clip.mp4")
             if FileManager.default.fileExists(atPath: audioClipURL.path) {
                 guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
                     print("No fingerprint was generated")
@@ -369,6 +394,9 @@ class TrackerViewController: UIViewController {
             
             let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: audioFileFingerprintInt)
             
+            
+            
+            
             self.saveDifferenceInFile(differenceMatrix: differenceArrays)
         }
     }
@@ -380,25 +408,33 @@ class TrackerViewController: UIViewController {
             var differenceArray = [Int32]()
             
             if index > 0 {
-                differenceArray.append(contentsOf: audioFingerprintRaw[0..<index])
+//                differenceArray.append(contentsOf: audioFingerprintRaw[0..<index])
             }
             
-            var clipIndex = 0
-            while clipIndex < clipFingerprintRaw.count {
-                let clipFingerprintElem = clipFingerprintRaw[clipIndex]
-                let audioFingerprintElem = index + clipIndex < audioFingerprintRaw.count ? audioFingerprintRaw[index + clipIndex] : 0
-                let differenceElem = audioFingerprintElem ^ clipFingerprintElem
-                differenceArray.append(differenceElem)
+            
+            if index + clipFingerprintRaw.count > audioFingerprintRaw.count {
+                //если клип выходит за пределы исходника смысла искать разницу уже нет
+                //пропускаем шаг (собственно как и все последующие)
+                index += 1
+            }
+            else {
+                var clipIndex = 0
+                while clipIndex < clipFingerprintRaw.count {
+                    let clipFingerprintElem = clipFingerprintRaw[clipIndex]
+                    let audioFingerprintElem = index + clipIndex < audioFingerprintRaw.count ? audioFingerprintRaw[index + clipIndex] : 0
+                    let differenceElem = audioFingerprintElem ^ clipFingerprintElem
+                    differenceArray.append(differenceElem)
+                    
+                    clipIndex += 1
+                }
                 
-                clipIndex += 1
+                if index + clipIndex < audioFingerprintRaw.count {
+//                    differenceArray.append(contentsOf: audioFingerprintRaw[(index + clipIndex)...(audioFingerprintRaw.count - 1)])
+                }
+                
+                differenceArrays[index] = differenceArray
+                index += 1
             }
-            
-            if index + clipIndex < audioFingerprintRaw.count {
-                differenceArray.append(contentsOf: audioFingerprintRaw[(index + clipIndex)...(audioFingerprintRaw.count - 1)])
-            }
-            
-            differenceArrays[index] = differenceArray
-            index += 1
         }
         
         print("matrix difference count elements: \(differenceArrays.count)")
@@ -410,16 +446,16 @@ class TrackerViewController: UIViewController {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
         
         do {
-            let differenceUrl = documentsUrl.appendingPathComponent("differenceMatrix", isDirectory: false)
-            let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceMatrixBinary", isDirectory: false)
+            let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
+            let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceArraysBinary", isDirectory: false)
             
             var string = String()
             var stringBinary = String()
             
             for indexDifferenceArray in 0..<differenceMatrix.count {
                 if let differenceArray = differenceMatrix[indexDifferenceArray] {
-                    var differenceArrayString = "["
-                    var differenceArrayBinaryString = "["
+                    var differenceArrayString = ""
+                    var differenceArrayBinaryString = ""
                     
                     for indexDifference in 0..<differenceArray.count {
                         let differenceElem = differenceArray[indexDifference]
@@ -433,8 +469,8 @@ class TrackerViewController: UIViewController {
                             differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem)
                         }
                     }
-                    differenceArrayString = differenceArrayString + "]"
-                    differenceArrayBinaryString = differenceArrayBinaryString + "]"
+                    differenceArrayString = differenceArrayString + "\n"
+                    differenceArrayBinaryString = differenceArrayBinaryString + "\n"
                     
                     string = string + differenceArrayString + "\n"
                     stringBinary = stringBinary + differenceArrayBinaryString + "\n"

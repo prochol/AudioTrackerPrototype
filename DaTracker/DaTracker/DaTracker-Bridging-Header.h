@@ -3,3 +3,4 @@
 //
 
 #import "chromaprint.h"
+#import "LBAudioDetective.h"

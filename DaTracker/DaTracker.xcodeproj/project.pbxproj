@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		951C1EF8479C49B1367C0CDF /* Pods_DaTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1602EB98372848A2C0D953DC /* Pods_DaTrackerTests.framework */; };
 		B8E5650B1471C43930A9912C /* Pods_DaTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5154E66DD30B16313DA74008 /* Pods_DaTracker.framework */; };
+		BA12CB4D22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m in Sources */ = {isa = PBXBuildFile; fileRef = BA12CB4722A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m */; };
+		BA12CB4E22A50E3E008D7B41 /* LBAudioDetectiveFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = BA12CB4B22A50E3E008D7B41 /* LBAudioDetectiveFrame.m */; };
+		BA12CB4F22A50E3E008D7B41 /* LBAudioDetective.m in Sources */ = {isa = PBXBuildFile; fileRef = BA12CB4C22A50E3E008D7B41 /* LBAudioDetective.m */; };
 		BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */; };
 		BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DB83922704DEF00F88D57 /* String+Binary.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
@@ -57,6 +60,12 @@
 		6E2B0C5A55DA64231AB60C6B /* Pods-DaTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerUITests/Pods-DaTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DE379640659CC2418540B86 /* Pods-DaTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTracker/Pods-DaTracker.release.xcconfig"; sourceTree = "<group>"; };
 		7EC1683CFAFB752567DEFC71 /* Pods-DaTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DaTrackerTests/Pods-DaTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		BA12CB4722A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAudioDetectiveFingerprint.m; sourceTree = "<group>"; };
+		BA12CB4822A50E3E008D7B41 /* LBAudioDetectiveFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAudioDetectiveFrame.h; sourceTree = "<group>"; };
+		BA12CB4922A50E3E008D7B41 /* LBAudioDetective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAudioDetective.h; sourceTree = "<group>"; };
+		BA12CB4A22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBAudioDetectiveFingerprint.h; sourceTree = "<group>"; };
+		BA12CB4B22A50E3E008D7B41 /* LBAudioDetectiveFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAudioDetectiveFrame.m; sourceTree = "<group>"; };
+		BA12CB4C22A50E3E008D7B41 /* LBAudioDetective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAudioDetective.m; sourceTree = "<group>"; };
 		BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaRecorderController.swift; sourceTree = "<group>"; };
 		BA2DB83922704DEF00F88D57 /* String+Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Binary.swift"; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
@@ -124,6 +133,7 @@
 		68F8D3A7B5B43CCAD35A798C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA12CB4622A50E3E008D7B41 /* LBAudioDetective */,
 				BAD6E993226F07B400C5690F /* ChromaprintLib */,
 				BAD7359E216386D40054B7E3 /* AVFoundation.framework */,
 				BAD6E9AA226F198500C5690F /* Accelerate.framework */,
@@ -133,6 +143,20 @@
 				2D3BBAE185E779656FAA1FB4 /* Pods_DaTrackerUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA12CB4622A50E3E008D7B41 /* LBAudioDetective */ = {
+			isa = PBXGroup;
+			children = (
+				BA12CB4922A50E3E008D7B41 /* LBAudioDetective.h */,
+				BA12CB4C22A50E3E008D7B41 /* LBAudioDetective.m */,
+				BA12CB4822A50E3E008D7B41 /* LBAudioDetectiveFrame.h */,
+				BA12CB4B22A50E3E008D7B41 /* LBAudioDetectiveFrame.m */,
+				BA12CB4A22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.h */,
+				BA12CB4722A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m */,
+			);
+			name = LBAudioDetective;
+			path = Frameworks/LBAudioDetective;
 			sourceTree = "<group>";
 		};
 		BA2DB825226FF5AB00F88D57 /* BL */ = {
@@ -502,9 +526,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
+				BA12CB4D22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m in Sources */,
+				BA12CB4E22A50E3E008D7B41 /* LBAudioDetectiveFrame.m in Sources */,
 				BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */,
 				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
 				BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */,
+				BA12CB4F22A50E3E008D7B41 /* LBAudioDetective.m in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
 				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
 			);
@@ -624,6 +651,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "DaTracker/DaTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -684,6 +712,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DaTracker/DaTracker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};
