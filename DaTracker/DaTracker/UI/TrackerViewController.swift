@@ -346,7 +346,7 @@ class TrackerViewController: UIViewController {
                 
                 var fingerprint: LBAudioDetectiveFingerprintRef? = nil
                 
-                print("Start Detective Compare Audio")
+                print("Start Detective Audio")
                 
                 let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioFileURL, &fingerprint)
                 print("recognize status: \(detectiveStatus)")
