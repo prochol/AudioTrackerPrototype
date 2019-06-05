@@ -185,10 +185,15 @@ Float32 LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(LBAudioDetecti
         
         for (UInt32 i = 0; i < subfingerprintCount2; i++) {
             Float32 currentMatch = LBAudioDetectiveFingerprintCompareSubfingerprints(inFingerprint1, inFingerprint1->subfingerprints[i+offset], inFingerprint2->subfingerprints[i], inRange);
+            
+            NSLog(@"currentMatch %f", currentMatch);
+            
             matchesSum += currentMatch;
         }
         
         match = MAX(match, matchesSum/(Float32)subfingerprintCount2);
+        
+        NSLog(@"match %f offset %i", match, offset);
         
         if (match > maxMatch) {
             maxMatch = match;
@@ -207,23 +212,41 @@ Float32 LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(LBAudioDetecti
 }
 
 Float32 LBAudioDetectiveFingerprintCompareSubfingerprints(LBAudioDetectiveFingerprintRef inFingerprint, Boolean* inSubfingerprint1, Boolean* inSubfingerprint2, UInt32 inRange) {
+//    UInt32 nonPossibleHits = 0;
     UInt32 possibleHits = 0;
     UInt32 hits = 0;
     
-    for (UInt32 i = 0; i < MIN(inRange, inFingerprint->subfingerprintLength); i += 2) {
+//    for (UInt32 i = 0; i < MIN(inRange, inFingerprint->subfingerprintLength); i += 2) {
+//        Boolean sf1s1 = inSubfingerprint1[i];
+//        Boolean sf1s2 = inSubfingerprint1[i+1];
+//
+//        if (sf1s1 || sf1s2) {
+//            possibleHits++;
+//
+//            Boolean sf2s1 = inSubfingerprint2[i];
+//            Boolean sf2s2 = inSubfingerprint2[i+1];
+//
+//            if ((sf1s1 == sf2s1) && (sf1s2 == sf2s2)) {
+//                hits++;
+//            }
+//        }
+//        else {
+////            nonPossibleHits++;
+//            NSLog(@"nonPossibleHits");
+//        }
+//    }
+    
+    for (UInt32 i = 0; i < MIN(inRange, inFingerprint->subfingerprintLength); i += 1) {
         Boolean sf1s1 = inSubfingerprint1[i];
-        Boolean sf1s2 = inSubfingerprint1[i+1];
-        
-        if (sf1s1 || sf1s2) {
-            possibleHits++;
-            
-            Boolean sf2s1 = inSubfingerprint2[i];
-            Boolean sf2s2 = inSubfingerprint2[i+1];
-            
-            if ((sf1s1 == sf2s1) && (sf1s2 == sf2s2)) {
-                hits++;
-            }
+        Boolean sf2s1 = inSubfingerprint2[i];
+
+        Boolean xorsf1sf2 = sf1s1 ^ sf2s1;
+
+        if (!xorsf1sf2) {
+            hits++;
         }
+
+        possibleHits++;
     }
     
     if (possibleHits <= 0) {

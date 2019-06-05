@@ -163,7 +163,7 @@ class TrackerViewController: UIViewController {
         }
         
 //        let trim = (TimeInterval(10.0 + 0.124 * 2), TimeInterval(9.0))
-        let trim = (TimeInterval(57.0), TimeInterval(24.8))
+        let trim = (TimeInterval(57), TimeInterval(24.8))
         
         MediaRecorderController().saveMedia(of: mediaURL, to: outputURL, trim: trim) { status in
             if status == .completed {
@@ -343,109 +343,115 @@ class TrackerViewController: UIViewController {
             
             let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
             
-//            var videoFileFingerprintInt = [Int32]()
+            var videoFileFingerprintInt = [Int32]()
             
-            var lengthRange: UInt32 = 0
-            var videoFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
+//            var lengthRange: UInt32 = 0
+//            var videoFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
             
             let videoFileURL = documentsUrl.appendingPathComponent("video.mp4")
             if FileManager.default.fileExists(atPath: videoFileURL.path) {
                 
-                let detective = LBAudioDetectiveNew()
-                print("Start Detective Video")
+//                let detective = LBAudioDetectiveNew()
+//                print("Start Detective Video")
+//
+//                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, videoFileURL, &videoFingerprint)
+//                print("video recognize status: \(detectiveStatus)")
+//
+//                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
+//                print("video detective length: \(length)")
+//                if lengthRange < length {
+//                    lengthRange = length
+//                }
+//
+//                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(videoFingerprint)
+//                print("subfingerprint length: \(subfingerprintLength)")
+//
+//                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(videoFingerprint)
+//                print("number of subfingerprints length: \(numberOfSubfingerprints)")
+//
+//
+//                let disposeStatus = LBAudioDetectiveDispose(detective)
+//                print("Dispose detective status: \(disposeStatus)")
                 
-                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, videoFileURL, &videoFingerprint)
-                print("video recognize status: \(detectiveStatus)")
                 
-                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
-                print("video detective length: \(length)")
-                if lengthRange < length {
-                    lengthRange = length
+                
+                
+                
+                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: videoFileURL) else {
+                    print("No fingerprint was generated")
+                    return
                 }
 
-                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(videoFingerprint)
-                print("subfingerprint length: \(subfingerprintLength)")
-                
-                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(videoFingerprint)
-                print("number of subfingerprints length: \(numberOfSubfingerprints)")
-                
-                
-                let disposeStatus = LBAudioDetectiveDispose(detective)
-                print("Dispose detective status: \(disposeStatus)")
-                
-                
-                
-                
-                
-//                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: videoFileURL) else {
-//                    print("No fingerprint was generated")
-//                    return
-//                }
-//
-//                videoFileFingerprintInt = fingerprintInt
-//
-//                print("The video duration is \(duration)")
-//                print("The video fingerprint long: \(fingerprintInt.count)")
+                videoFileFingerprintInt = fingerprintInt
+
+                print("The video duration is \(duration)")
+                print("The video fingerprint long: \(fingerprintInt.count)")
             }
             
-//            var clipFingerprintInt = [Int32]()
+            var clipFingerprintInt = [Int32]()
             
-            var clipFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
+//            var clipFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
             
-            let audioClipURL = documentsUrl.appendingPathComponent("audio/clip.mp4")
+            let audioClipURL = documentsUrl.appendingPathComponent("audio/output.mp4")
             if FileManager.default.fileExists(atPath: audioClipURL.path) {
-                let detective = LBAudioDetectiveNew()
-                print("Start Detective Audio")
-                
-                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioClipURL, &clipFingerprint)
-                print("recognize status: \(detectiveStatus)")
-                
-                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
-                print("detective length: \(length)")
-                if lengthRange < length {
-                    lengthRange = length
-                }
-                
-                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(clipFingerprint)
-                print("subfingerprint length: \(subfingerprintLength)")
-                
-                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(clipFingerprint)
-                print("number of subfingerprints length: \(numberOfSubfingerprints)")
-                
-                
-                let disposeStatus = LBAudioDetectiveDispose(detective)
-                print("Dispose detective status: \(disposeStatus)")
-                
-                
-//                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
-//                    print("No fingerprint was generated")
-//                    return
+//                let detective = LBAudioDetectiveNew()
+//                print("Start Detective Audio")
+//
+//                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioClipURL, &clipFingerprint)
+//                print("recognize status: \(detectiveStatus)")
+//
+//                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
+//                print("detective length: \(length)")
+//                if lengthRange < length {
+//                    lengthRange = length
 //                }
 //
-//                clipFingerprintInt = fingerprintInt
+//                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(clipFingerprint)
+//                print("subfingerprint length: \(subfingerprintLength)")
 //
-//                print("The audio clip duration is \(duration)")
-//                print("The audio clip fingerprint long: \(fingerprintInt.count)")
+//                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(clipFingerprint)
+//                print("number of subfingerprints length: \(numberOfSubfingerprints)")
+//
+//
+//                let disposeStatus = LBAudioDetectiveDispose(detective)
+//                print("Dispose detective status: \(disposeStatus)")
+                
+                
+                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
+                    print("No fingerprint was generated")
+                    return
+                }
+
+                clipFingerprintInt = fingerprintInt
+
+                print("The audio clip duration is \(duration)")
+                print("The audio clip fingerprint long: \(fingerprintInt.count)")
             }
             
-            var offset: UInt32 = UInt32(0)
+//            var offset: UInt32 = UInt32(0)
+//
+//            let match = LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(videoFingerprint, clipFingerprint, lengthRange, &offset)
+//            print("match: \(match) with offset: \(offset)")
+//
+//
+//            DispatchQueue.main.async {
+//                let offsetPlayer = TimeInterval(Double(offset) * 0.18)
+//                self.playerViewController?.offsetPlayer = offsetPlayer
+//
+//                self.statusLabel.text = "Fingerprints status complete"
+//            }
+//
+//            LBAudioDetectiveFingerprintDispose(videoFingerprint)
+//            print("Dispose videoFingerprint")
+//
+//            LBAudioDetectiveFingerprintDispose(clipFingerprint)
+//            print("Dispose clipFingerprint")
             
-            let match = LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(videoFingerprint, clipFingerprint, lengthRange, &offset)
-            print("match: \(match) with offset: \(offset)")
             
             
+            let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: videoFileFingerprintInt)
             
-            LBAudioDetectiveFingerprintDispose(videoFingerprint)
-            print("Dispose videoFingerprint")
-            
-            LBAudioDetectiveFingerprintDispose(clipFingerprint)
-            print("Dispose clipFingerprint")
-            
-            
-            
-//            let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: videoFileFingerprintInt)
-            
-//            self.saveDifferenceInFile(differenceMatrix: differenceArrays)
+            self.saveDifferenceInFile(differenceMatrix: differenceArrays)
         }
     }
     
@@ -493,6 +499,11 @@ class TrackerViewController: UIViewController {
     private func saveDifferenceInFile(differenceMatrix: [Int: [Int32]]) {
         let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
         
+        var maxOffset: Int = 0
+        
+        var maxMathSumm: Double = 0.0
+        var mathSumm: Double = 0
+        
         do {
             let differenceUrl = documentsUrl.appendingPathComponent("differenceArrays", isDirectory: false)
             let differenceBinaryUrl = documentsUrl.appendingPathComponent("differenceArraysBinary", isDirectory: false)
@@ -505,16 +516,30 @@ class TrackerViewController: UIViewController {
                     var differenceArrayString = ""
                     var differenceArrayBinaryString = ""
                     
+                    var summMath: Double = 0
+                    
                     for indexDifference in 0..<differenceArray.count {
                         let differenceElem = differenceArray[indexDifference]
                         
                         if indexDifference < differenceArray.count - 1 {
                             differenceArrayString = differenceArrayString + String(differenceElem) + ", "
                             differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem) + ", "
+                            
+                            let possibleHits = String(fullBinary: differenceElem).filter({ $0 == "0" }).count
+                            let math = Double(possibleHits)/Double(String(fullBinary: differenceElem).count)
+                            print("possibleHits: \(possibleHits), math: \(math)")
+                            
+                            summMath += math
                         }
                         else {
                             differenceArrayString = differenceArrayString + String(differenceElem)
                             differenceArrayBinaryString = differenceArrayBinaryString + String(fullBinary: differenceElem)
+                            
+                            let possibleHits = String(fullBinary: differenceElem).filter({ $0 == "0" }).count
+                            let math = Double(possibleHits)/Double(String(fullBinary: differenceElem).count)
+                            print("possibleHits: \(possibleHits), math: \(math)")
+                            
+                            summMath += math
                         }
                     }
                     differenceArrayString = differenceArrayString + "\n"
@@ -522,11 +547,31 @@ class TrackerViewController: UIViewController {
                     
                     string = string + differenceArrayString + "\n"
                     stringBinary = stringBinary + differenceArrayBinaryString + "\n"
+                    
+                    print("index offset: \(indexDifferenceArray), summMath: \(summMath)")
+                    
+                    if mathSumm < summMath/Double(differenceArray.count) {
+                        mathSumm = summMath/Double(differenceArray.count)
+                    }
+                    
+                    if (mathSumm > maxMathSumm) {
+                        maxMathSumm = mathSumm
+                        maxOffset = indexDifferenceArray
+                    }
                 }
                 
                 if indexDifferenceArray.isMultiple(of: 50) {
                     print("create string for differenceArray with index: \(indexDifferenceArray)")
                 }
+            }
+            
+            print("maxMathSumm: \(maxMathSumm), maxOffset: \(maxOffset)")
+            
+            DispatchQueue.main.async {
+                let offsetPlayer = TimeInterval(Double(maxOffset) * 0.124)
+                self.playerViewController?.offsetPlayer = offsetPlayer
+                
+                self.statusLabel.text = "Fingerprints status complete"
             }
             
             try string.write(to: differenceUrl, atomically: true, encoding: String.Encoding.utf8)

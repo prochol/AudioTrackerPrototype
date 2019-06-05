@@ -19,6 +19,16 @@ class AVPlayerViewController: UIViewController {
     private var audioPlayer: AVAudioPlayer?
     private var timer: Timer?
 
+    var offsetPlayer: TimeInterval? {
+        didSet {
+            if let audioPlayer = audioPlayer {
+                audioPlayer.currentTime = offsetPlayer ?? 0
+                slider.setValue(Float(audioPlayer.currentTime), animated: true)
+            }
+            currentTimeLabel.text = self.calculateCurrentDuration()
+        }
+    }
+    
     var audioFilePath: String?
 
     override func viewDidLoad() {
