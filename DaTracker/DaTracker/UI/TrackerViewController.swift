@@ -36,7 +36,7 @@ class TrackerViewController: UIViewController {
         super.viewDidLoad()
         self.title = "DaTracker"
 
-        playerContainerBottomConstraint.constant = 72
+        self.playerContainerBottomConstraint.constant = 72
     }
 
     // MARK: - Navigation
@@ -44,7 +44,13 @@ class TrackerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        playerViewController = segue.destination as? AVPlayerViewController
+        self.playerViewController = segue.destination as? AVPlayerViewController
+        
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
+        let inputUrl = documentsUrl.appendingPathComponent("video.mp4")
+        if FileManager.default.fileExists(atPath: inputUrl.path) {
+            self.playerViewController?.audioFilePath = inputUrl.path
+        }
     }
 
     // MARK: - Actions
@@ -337,67 +343,109 @@ class TrackerViewController: UIViewController {
             
             let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as URL
             
-            var audioFileFingerprintInt = [Int32]()
+//            var videoFileFingerprintInt = [Int32]()
             
-            let audioFileURL = documentsUrl.appendingPathComponent("video.mp4")
-            if FileManager.default.fileExists(atPath: audioFileURL.path) {
+            var lengthRange: UInt32 = 0
+            var videoFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
+            
+            let videoFileURL = documentsUrl.appendingPathComponent("video.mp4")
+            if FileManager.default.fileExists(atPath: videoFileURL.path) {
                 
-                var detective = LBAudioDetectiveNew()
+                let detective = LBAudioDetectiveNew()
+                print("Start Detective Video")
                 
-                var fingerprint: LBAudioDetectiveFingerprintRef? = nil
-                
-                print("Start Detective Audio")
-                
-                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioFileURL, &fingerprint)
-                print("recognize status: \(detectiveStatus)")
+                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, videoFileURL, &videoFingerprint)
+                print("video recognize status: \(detectiveStatus)")
                 
                 let length = LBAudioDetectiveGetSubfingerprintLength(detective)
-                print("detective length: \(length)")
+                print("video detective length: \(length)")
+                if lengthRange < length {
+                    lengthRange = length
+                }
 
-//                let recognizeStatus = LBAudioDetectiveCompareAudioURLs(detective, audioFileURL, mp4VideoOutputURL, 0, &match)
-//                print("The files are equal to a percentage of \(match)")
-
+                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(videoFingerprint)
+                print("subfingerprint length: \(subfingerprintLength)")
                 
-                LBAudioDetectiveFingerprintDispose(fingerprint)
-                print("Dispose fingerprint")
+                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(videoFingerprint)
+                print("number of subfingerprints length: \(numberOfSubfingerprints)")
+                
                 
                 let disposeStatus = LBAudioDetectiveDispose(detective)
                 print("Dispose detective status: \(disposeStatus)")
                 
                 
                 
-                guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioFileURL) else {
-                    print("No fingerprint was generated")
-                    return
-                }
                 
-                audioFileFingerprintInt = audioFingerprintInt
-
-                print("The audio duration is \(durationAudio)")
-                print("The audio fingerprint long: \(audioFingerprintInt.count)")
+                
+//                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: videoFileURL) else {
+//                    print("No fingerprint was generated")
+//                    return
+//                }
+//
+//                videoFileFingerprintInt = fingerprintInt
+//
+//                print("The video duration is \(duration)")
+//                print("The video fingerprint long: \(fingerprintInt.count)")
             }
             
-            var clipFingerprintInt = [Int32]()
+//            var clipFingerprintInt = [Int32]()
+            
+            var clipFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
             
             let audioClipURL = documentsUrl.appendingPathComponent("audio/clip.mp4")
             if FileManager.default.fileExists(atPath: audioClipURL.path) {
-                guard let (audioFingerprintInt, durationAudio) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
-                    print("No fingerprint was generated")
-                    return
+                let detective = LBAudioDetectiveNew()
+                print("Start Detective Audio")
+                
+                let detectiveStatus = LBAudioDetectiveProcessAudioURL(detective, audioClipURL, &clipFingerprint)
+                print("recognize status: \(detectiveStatus)")
+                
+                let length = LBAudioDetectiveGetSubfingerprintLength(detective)
+                print("detective length: \(length)")
+                if lengthRange < length {
+                    lengthRange = length
                 }
                 
-                clipFingerprintInt = audioFingerprintInt
-
-                print("The audio clip duration is \(durationAudio)")
-                print("The audio clip fingerprint long: \(audioFingerprintInt.count)")
+                let subfingerprintLength = LBAudioDetectiveFingerprintGetSubfingerprintLength(clipFingerprint)
+                print("subfingerprint length: \(subfingerprintLength)")
+                
+                let numberOfSubfingerprints = LBAudioDetectiveFingerprintGetNumberOfSubfingerprints(clipFingerprint)
+                print("number of subfingerprints length: \(numberOfSubfingerprints)")
+                
+                
+                let disposeStatus = LBAudioDetectiveDispose(detective)
+                print("Dispose detective status: \(disposeStatus)")
+                
+                
+//                guard let (fingerprintInt, duration) = generateFingerprintRaw(fromSongAtUrl: audioClipURL) else {
+//                    print("No fingerprint was generated")
+//                    return
+//                }
+//
+//                clipFingerprintInt = fingerprintInt
+//
+//                print("The audio clip duration is \(duration)")
+//                print("The audio clip fingerprint long: \(fingerprintInt.count)")
             }
             
-            let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: audioFileFingerprintInt)
+            var offset: UInt32 = UInt32(0)
+            
+            let match = LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(videoFingerprint, clipFingerprint, lengthRange, &offset)
+            print("match: \(match) with offset: \(offset)")
             
             
             
+            LBAudioDetectiveFingerprintDispose(videoFingerprint)
+            print("Dispose videoFingerprint")
             
-            self.saveDifferenceInFile(differenceMatrix: differenceArrays)
+            LBAudioDetectiveFingerprintDispose(clipFingerprint)
+            print("Dispose clipFingerprint")
+            
+            
+            
+//            let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: videoFileFingerprintInt)
+            
+//            self.saveDifferenceInFile(differenceMatrix: differenceArrays)
         }
     }
     

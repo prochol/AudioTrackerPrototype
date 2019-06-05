@@ -134,6 +134,19 @@ Boolean LBAudioDetectiveFingerprintEqualToFingerprint(LBAudioDetectiveFingerprin
 Float32 LBAudioDetectiveFingerprintCompareToFingerprint(LBAudioDetectiveFingerprintRef inFingerprint1, LBAudioDetectiveFingerprintRef inFingerprint2, UInt32 inRange);
 
 /**
+ This function compares two fingerprints.
+ 
+ @param inFingerprint1 The first `LBAudioDetectiveFingerprintRef`
+ @param inFingerprint2 The second `LBAudioDetectiveFingerprintRef`
+ @param inRange The number of `Boolean`s that should be compared in a subfingerprint
+ @param outOffset A `UInt32` value which indicates the offset with the maximum match `inSubfingerprint2` is to `inSubfingerprint1`
+ 
+ @return A `Float32` value between 0.0 and 1.0 which indicates how equal `inFingerprint2` is to `inFingerprint1`
+ */
+
+Float32 LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(LBAudioDetectiveFingerprintRef inFingerprint1, LBAudioDetectiveFingerprintRef inFingerprint2, UInt32 inRange, UInt32* outOffset);
+
+/**
  This function compares two subfingerprints.
  
  @param inFingerprint The `LBAudioDetectiveFingerprintRef` which holds `inSubfingerprint1`

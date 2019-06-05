@@ -160,6 +160,52 @@ Float32 LBAudioDetectiveFingerprintCompareToFingerprint(LBAudioDetectiveFingerpr
     return match;
 }
 
+Float32 LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(LBAudioDetectiveFingerprintRef inFingerprint1, LBAudioDetectiveFingerprintRef inFingerprint2, UInt32 inRange, UInt32* outOffset) {
+    UInt32 subfingerprintCount1 = inFingerprint1->subfingerprintCount;
+    UInt32 subfingerprintCount2 = inFingerprint2->subfingerprintCount;
+    
+    if (inFingerprint1->subfingerprintCount < inFingerprint2->subfingerprintCount) {
+        LBAudioDetectiveFingerprintRef tmpFingerprint = inFingerprint1;
+        inFingerprint1 = inFingerprint2;
+        inFingerprint2 = tmpFingerprint;
+        
+        UInt32 tmpSubfingerprintCount = subfingerprintCount1;
+        subfingerprintCount1 = subfingerprintCount2;
+        subfingerprintCount2 = tmpSubfingerprintCount;
+    }
+    
+    Float32 match = 0.0f;
+    UInt32 offset = 0;
+    
+    Float32 maxMatch = 0.0f;
+    UInt32 maxOffset = 0;
+    
+    while (offset <= subfingerprintCount1-subfingerprintCount2) {
+        Float32 matchesSum = 0.0f;
+        
+        for (UInt32 i = 0; i < subfingerprintCount2; i++) {
+            Float32 currentMatch = LBAudioDetectiveFingerprintCompareSubfingerprints(inFingerprint1, inFingerprint1->subfingerprints[i+offset], inFingerprint2->subfingerprints[i], inRange);
+            matchesSum += currentMatch;
+        }
+        
+        match = MAX(match, matchesSum/(Float32)subfingerprintCount2);
+        
+        if (match > maxMatch) {
+            maxMatch = match;
+            maxOffset = offset;
+        }
+        
+        offset++;
+    }
+    
+    NSLog(@"Fingerprint coincidence on max math: %f", maxMatch);
+    NSLog(@"Fingerprint coincidence on offset: %i", maxOffset);
+    
+    *outOffset = maxOffset;
+    
+    return match;
+}
+
 Float32 LBAudioDetectiveFingerprintCompareSubfingerprints(LBAudioDetectiveFingerprintRef inFingerprint, Boolean* inSubfingerprint1, Boolean* inSubfingerprint2, UInt32 inRange) {
     UInt32 possibleHits = 0;
     UInt32 hits = 0;
