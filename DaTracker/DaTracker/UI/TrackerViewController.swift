@@ -345,7 +345,7 @@ class TrackerViewController: UIViewController {
             
             var videoFileFingerprintInt = [Int32]()
             
-//            var lengthRange: UInt32 = 0
+            var lengthRange: UInt32 = 0
 //            var videoFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
             
             let videoFileURL = documentsUrl.appendingPathComponent("video.mp4")
@@ -392,7 +392,7 @@ class TrackerViewController: UIViewController {
             
 //            var clipFingerprint: LBAudioDetectiveFingerprintRef? = LBAudioDetectiveFingerprintNew(0)
             
-            let audioClipURL = documentsUrl.appendingPathComponent("audio/output.mp4")
+            let audioClipURL = documentsUrl.appendingPathComponent("audio/clip.mp4")
             if FileManager.default.fileExists(atPath: audioClipURL.path) {
 //                let detective = LBAudioDetectiveNew()
 //                print("Start Detective Audio")
@@ -428,12 +428,12 @@ class TrackerViewController: UIViewController {
                 print("The audio clip fingerprint long: \(fingerprintInt.count)")
             }
             
-//            var offset: UInt32 = UInt32(0)
-//
+            var offset: UInt32 = UInt32(0)
+
 //            let match = LBAudioDetectiveFingerprintCompareWithOffsetToFingerprint(videoFingerprint, clipFingerprint, lengthRange, &offset)
 //            print("match: \(match) with offset: \(offset)")
-//
-//
+
+
 //            DispatchQueue.main.async {
 //                let offsetPlayer = TimeInterval(Double(offset) * 0.18)
 //                self.playerViewController?.offsetPlayer = offsetPlayer
@@ -450,7 +450,7 @@ class TrackerViewController: UIViewController {
             
             
             let differenceArrays = self.generateDifference(clipFingerprintRaw: clipFingerprintInt, audioFingerprintRaw: videoFileFingerprintInt)
-            
+
             self.saveDifferenceInFile(differenceMatrix: differenceArrays)
         }
     }
