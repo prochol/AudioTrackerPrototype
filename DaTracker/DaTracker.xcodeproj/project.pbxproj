@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		BA12CB4F22A50E3E008D7B41 /* LBAudioDetective.m in Sources */ = {isa = PBXBuildFile; fileRef = BA12CB4C22A50E3E008D7B41 /* LBAudioDetective.m */; };
 		BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */; };
 		BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DB83922704DEF00F88D57 /* String+Binary.swift */; };
+		BA60A61023978CC800EDBCD1 /* QRCodeScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A60E23978CC800EDBCD1 /* QRCodeScannerError.swift */; };
+		BA60A61123978CC800EDBCD1 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A60F23978CC800EDBCD1 /* QRCodeScannerViewController.swift */; };
+		BA60A61423978D2400EDBCD1 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61323978D2400EDBCD1 /* Localization.swift */; };
+		BA60A61923978D6E00EDBCD1 /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61623978D6E00EDBCD1 /* ErrorAlertController.swift */; };
+		BA60A61A23978D6E00EDBCD1 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61823978D6E00EDBCD1 /* NibView.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
 		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
@@ -68,6 +73,11 @@
 		BA12CB4C22A50E3E008D7B41 /* LBAudioDetective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBAudioDetective.m; sourceTree = "<group>"; };
 		BA2DB826226FF5C300F88D57 /* MediaRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaRecorderController.swift; sourceTree = "<group>"; };
 		BA2DB83922704DEF00F88D57 /* String+Binary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Binary.swift"; sourceTree = "<group>"; };
+		BA60A60E23978CC800EDBCD1 /* QRCodeScannerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScannerError.swift; sourceTree = "<group>"; };
+		BA60A60F23978CC800EDBCD1 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		BA60A61323978D2400EDBCD1 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		BA60A61623978D6E00EDBCD1 /* ErrorAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
+		BA60A61823978D6E00EDBCD1 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +193,61 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		BA60A60B23978C5A00EDBCD1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
+				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BA60A60C23978C8F00EDBCD1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A61223978CFE00EDBCD1 /* Utils */,
+				BAA446F521635A15008C6FCC /* UI */,
+				BA2DB825226FF5AB00F88D57 /* BL */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BA60A60D23978CC800EDBCD1 /* QRCodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A60E23978CC800EDBCD1 /* QRCodeScannerError.swift */,
+				BA60A60F23978CC800EDBCD1 /* QRCodeScannerViewController.swift */,
+			);
+			path = QRCodeScanner;
+			sourceTree = "<group>";
+		};
+		BA60A61223978CFE00EDBCD1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A61323978D2400EDBCD1 /* Localization.swift */,
+				BA60A61523978D6E00EDBCD1 /* UI */,
+				BA2DB82822704DEF00F88D57 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BA60A61523978D6E00EDBCD1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A61623978D6E00EDBCD1 /* ErrorAlertController.swift */,
+				BA60A61723978D6E00EDBCD1 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BA60A61723978D6E00EDBCD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A61823978D6E00EDBCD1 /* NibView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BAA446BB21634DA7008C6FCC = {
 			isa = PBXGroup;
 			children = (
@@ -208,10 +273,8 @@
 		BAA446C621634DA7008C6FCC /* DaTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BA2DB82822704DEF00F88D57 /* Extensions */,
-				BA2DB825226FF5AB00F88D57 /* BL */,
+				BA60A60C23978C8F00EDBCD1 /* Classes */,
 				ED8D2AE2B5DCF669A1EC1262 /* Resources */,
-				BAA446F521635A15008C6FCC /* UI */,
 				BAA446C721634DA7008C6FCC /* AppDelegate.swift */,
 				BAA446D321634DA8008C6FCC /* Info.plist */,
 				BAD6E999226F08B600C5690F /* DaTracker-Bridging-Header.h */,
@@ -240,6 +303,7 @@
 		BAA446F521635A15008C6FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A60D23978CC800EDBCD1 /* QRCodeScanner */,
 				BAA446C921634DA7008C6FCC /* TrackerViewController.swift */,
 				ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */,
 			);
@@ -270,12 +334,11 @@
 		ED8D2AE2B5DCF669A1EC1262 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A60B23978C5A00EDBCD1 /* Storyboards */,
 				BAD6E9AC226F1B1D00C5690F /* audio */,
 				BAD6E9B0226F1B1D00C5690F /* audio.mp4 */,
 				BA6315F52164B2E20071DE9F /* sample.mp3 */,
-				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
 				BAA446CE21634DA8008C6FCC /* Assets.xcassets */,
-				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -480,16 +543,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DaTracker/Pods-DaTracker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DaTracker/Pods-DaTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DaTracker/Pods-DaTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -527,12 +585,17 @@
 			files = (
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
 				BA12CB4D22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m in Sources */,
+				BA60A61423978D2400EDBCD1 /* Localization.swift in Sources */,
 				BA12CB4E22A50E3E008D7B41 /* LBAudioDetectiveFrame.m in Sources */,
 				BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */,
 				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
+				BA60A61A23978D6E00EDBCD1 /* NibView.swift in Sources */,
+				BA60A61023978CC800EDBCD1 /* QRCodeScannerError.swift in Sources */,
+				BA60A61123978CC800EDBCD1 /* QRCodeScannerViewController.swift in Sources */,
 				BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */,
 				BA12CB4F22A50E3E008D7B41 /* LBAudioDetective.m in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
+				BA60A61923978D6E00EDBCD1 /* ErrorAlertController.swift in Sources */,
 				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
