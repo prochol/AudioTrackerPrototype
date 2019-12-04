@@ -19,6 +19,12 @@
 		BA60A61423978D2400EDBCD1 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61323978D2400EDBCD1 /* Localization.swift */; };
 		BA60A61923978D6E00EDBCD1 /* ErrorAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61623978D6E00EDBCD1 /* ErrorAlertController.swift */; };
 		BA60A61A23978D6E00EDBCD1 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61823978D6E00EDBCD1 /* NibView.swift */; };
+		BA60A61D23978E5500EDBCD1 /* Recorder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA60A61B23978E5500EDBCD1 /* Recorder.storyboard */; };
+		BA60A62023978FEE00EDBCD1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A61F23978FEE00EDBCD1 /* TagsViewController.swift */; };
+		BA60A6232397905900EDBCD1 /* UIView+RemoveAllSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A6222397905900EDBCD1 /* UIView+RemoveAllSubviews.swift */; };
+		BA60A627239790B700EDBCD1 /* TagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA60A625239790B700EDBCD1 /* TagView.xib */; };
+		BA60A628239790B700EDBCD1 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A626239790B700EDBCD1 /* TagView.swift */; };
+		BA60A62A2397913800EDBCD1 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
 		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
@@ -78,6 +84,12 @@
 		BA60A61323978D2400EDBCD1 /* Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		BA60A61623978D6E00EDBCD1 /* ErrorAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertController.swift; sourceTree = "<group>"; };
 		BA60A61823978D6E00EDBCD1 /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		BA60A61C23978E5500EDBCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Recorder.storyboard; sourceTree = "<group>"; };
+		BA60A61F23978FEE00EDBCD1 /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
+		BA60A6222397905900EDBCD1 /* UIView+RemoveAllSubviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RemoveAllSubviews.swift"; sourceTree = "<group>"; };
+		BA60A625239790B700EDBCD1 /* TagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagView.xib; sourceTree = "<group>"; };
+		BA60A626239790B700EDBCD1 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 		BA2DB82822704DEF00F88D57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A6212397904A00EDBCD1 /* UI */,
 				BA2DB83622704DEF00F88D57 /* Foundation */,
 			);
 			path = Extensions;
@@ -188,6 +201,7 @@
 		BA2DB83622704DEF00F88D57 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */,
 				BA2DB83922704DEF00F88D57 /* String+Binary.swift */,
 			);
 			path = Foundation;
@@ -196,6 +210,7 @@
 		BA60A60B23978C5A00EDBCD1 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A61B23978E5500EDBCD1 /* Recorder.storyboard */,
 				BAA446CB21634DA7008C6FCC /* Main.storyboard */,
 				BAA446D021634DA8008C6FCC /* LaunchScreen.storyboard */,
 			);
@@ -244,6 +259,32 @@
 			isa = PBXGroup;
 			children = (
 				BA60A61823978D6E00EDBCD1 /* NibView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA60A61E23978FE000EDBCD1 /* Recorder */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A6242397909200EDBCD1 /* Views */,
+				BA60A61F23978FEE00EDBCD1 /* TagsViewController.swift */,
+			);
+			path = Recorder;
+			sourceTree = "<group>";
+		};
+		BA60A6212397904A00EDBCD1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A6222397905900EDBCD1 /* UIView+RemoveAllSubviews.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BA60A6242397909200EDBCD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A626239790B700EDBCD1 /* TagView.swift */,
+				BA60A625239790B700EDBCD1 /* TagView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -303,6 +344,7 @@
 		BAA446F521635A15008C6FCC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BA60A61E23978FE000EDBCD1 /* Recorder */,
 				BA60A60D23978CC800EDBCD1 /* QRCodeScanner */,
 				BAA446C921634DA7008C6FCC /* TrackerViewController.swift */,
 				ED8D20E77B9464B424A3D04B /* AVPlayerViewController.swift */,
@@ -466,7 +508,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAD6E9B2226F1B1D00C5690F /* clip_0.mp4 in Resources */,
+				BA60A627239790B700EDBCD1 /* TagView.xib in Resources */,
 				BAA446D221634DA8008C6FCC /* LaunchScreen.storyboard in Resources */,
+				BA60A61D23978E5500EDBCD1 /* Recorder.storyboard in Resources */,
 				BAD6E9B4226F1B1D00C5690F /* audio.mp4 in Resources */,
 				BAD6E9B3226F1B1D00C5690F /* clip_2.mp4 in Resources */,
 				BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */,
@@ -583,17 +627,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA60A628239790B700EDBCD1 /* TagView.swift in Sources */,
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
 				BA12CB4D22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m in Sources */,
+				BA60A62023978FEE00EDBCD1 /* TagsViewController.swift in Sources */,
 				BA60A61423978D2400EDBCD1 /* Localization.swift in Sources */,
 				BA12CB4E22A50E3E008D7B41 /* LBAudioDetectiveFrame.m in Sources */,
 				BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */,
 				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
 				BA60A61A23978D6E00EDBCD1 /* NibView.swift in Sources */,
 				BA60A61023978CC800EDBCD1 /* QRCodeScannerError.swift in Sources */,
+				BA60A62A2397913800EDBCD1 /* String+BoundingRect.swift in Sources */,
 				BA60A61123978CC800EDBCD1 /* QRCodeScannerViewController.swift in Sources */,
 				BA2DB827226FF5C300F88D57 /* MediaRecorderController.swift in Sources */,
 				BA12CB4F22A50E3E008D7B41 /* LBAudioDetective.m in Sources */,
+				BA60A6232397905900EDBCD1 /* UIView+RemoveAllSubviews.swift in Sources */,
 				BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */,
 				BA60A61923978D6E00EDBCD1 /* ErrorAlertController.swift in Sources */,
 				ED8D2C7DBB0FFEDD7512C4EE /* AVPlayerViewController.swift in Sources */,
@@ -632,6 +680,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BA60A61B23978E5500EDBCD1 /* Recorder.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA60A61C23978E5500EDBCD1 /* Base */,
+			);
+			name = Recorder.storyboard;
+			sourceTree = "<group>";
+		};
 		BAA446CB21634DA7008C6FCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
