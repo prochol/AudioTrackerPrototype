@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Archivo-Medium.ttf">
+            <string>Archivo-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="RecorderTimeView" customModule="DaTrackerFramework" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="54" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCR-4S-xMk">
+                    <rect key="frame" x="0.0" y="0.0" width="54" height="21"/>
+                    <fontDescription key="fontDescription" name="Archivo-Medium" family="Archivo" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.17254901959999999" green="0.25882352939999997" blue="0.33725490200000002" alpha="0.74858608128834359" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="KCR-4S-xMk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7Wh-Sx-qjE"/>
+                <constraint firstAttribute="trailing" secondItem="KCR-4S-xMk" secondAttribute="trailing" id="UR9-7s-Bb9"/>
+                <constraint firstItem="KCR-4S-xMk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YtO-5v-bwA"/>
+                <constraint firstAttribute="bottom" secondItem="KCR-4S-xMk" secondAttribute="bottom" id="goh-le-tFd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="timeLabel" destination="KCR-4S-xMk" id="rfP-hr-bfD"/>
+            </connections>
+            <point key="canvasLocation" x="41.600000000000001" y="45.877061469265371"/>
+        </view>
+    </objects>
+</document>

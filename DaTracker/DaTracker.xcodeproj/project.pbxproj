@@ -26,6 +26,8 @@
 		BA60A628239790B700EDBCD1 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A626239790B700EDBCD1 /* TagView.swift */; };
 		BA60A62A2397913800EDBCD1 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
+		BA9FD8E62398FC8F004853A8 /* RecorderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA9FD8E42398FC8F004853A8 /* RecorderTimeView.xib */; };
+		BA9FD8E72398FC8F004853A8 /* RecorderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9FD8E52398FC8F004853A8 /* RecorderTimeView.swift */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
 		BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C921634DA7008C6FCC /* TrackerViewController.swift */; };
 		BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA446CB21634DA7008C6FCC /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		BA60A626239790B700EDBCD1 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		BA9FD8E42398FC8F004853A8 /* RecorderTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecorderTimeView.xib; sourceTree = "<group>"; };
+		BA9FD8E52398FC8F004853A8 /* RecorderTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderTimeView.swift; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA446C721634DA7008C6FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA446C921634DA7008C6FCC /* TrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
@@ -266,8 +270,8 @@
 		BA60A61E23978FE000EDBCD1 /* Recorder */ = {
 			isa = PBXGroup;
 			children = (
-				BA60A6242397909200EDBCD1 /* Views */,
-				BA60A61F23978FEE00EDBCD1 /* TagsViewController.swift */,
+				BA9FD8E32398FC59004853A8 /* Views */,
+				BA9FD8E22398FC4B004853A8 /* Tags */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -285,6 +289,24 @@
 			children = (
 				BA60A626239790B700EDBCD1 /* TagView.swift */,
 				BA60A625239790B700EDBCD1 /* TagView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA9FD8E22398FC4B004853A8 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				BA60A6242397909200EDBCD1 /* Views */,
+				BA60A61F23978FEE00EDBCD1 /* TagsViewController.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		BA9FD8E32398FC59004853A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA9FD8E52398FC8F004853A8 /* RecorderTimeView.swift */,
+				BA9FD8E42398FC8F004853A8 /* RecorderTimeView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,6 +537,7 @@
 				BAD6E9B3226F1B1D00C5690F /* clip_2.mp4 in Resources */,
 				BAA446CF21634DA8008C6FCC /* Assets.xcassets in Resources */,
 				BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */,
+				BA9FD8E62398FC8F004853A8 /* RecorderTimeView.xib in Resources */,
 				BAA446CD21634DA7008C6FCC /* Main.storyboard in Resources */,
 				BAD6E9B1226F1B1D00C5690F /* clip_1.mp4 in Resources */,
 			);
@@ -631,6 +654,7 @@
 				BAA446CA21634DA7008C6FCC /* TrackerViewController.swift in Sources */,
 				BA12CB4D22A50E3E008D7B41 /* LBAudioDetectiveFingerprint.m in Sources */,
 				BA60A62023978FEE00EDBCD1 /* TagsViewController.swift in Sources */,
+				BA9FD8E72398FC8F004853A8 /* RecorderTimeView.swift in Sources */,
 				BA60A61423978D2400EDBCD1 /* Localization.swift in Sources */,
 				BA12CB4E22A50E3E008D7B41 /* LBAudioDetectiveFrame.m in Sources */,
 				BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */,
