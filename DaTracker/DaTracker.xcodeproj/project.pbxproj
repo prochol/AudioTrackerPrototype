@@ -26,6 +26,7 @@
 		BA60A628239790B700EDBCD1 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A626239790B700EDBCD1 /* TagView.swift */; };
 		BA60A62A2397913800EDBCD1 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */; };
 		BA6315F62164B2E20071DE9F /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA6315F52164B2E20071DE9F /* sample.mp3 */; };
+		BA8D9B90239A2F61008F8B5D /* ContainerScollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8D9B8F239A2F61008F8B5D /* ContainerScollView.swift */; };
 		BA9FD8E62398FC8F004853A8 /* RecorderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA9FD8E42398FC8F004853A8 /* RecorderTimeView.xib */; };
 		BA9FD8E72398FC8F004853A8 /* RecorderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9FD8E52398FC8F004853A8 /* RecorderTimeView.swift */; };
 		BAA446C821634DA7008C6FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA446C721634DA7008C6FCC /* AppDelegate.swift */; };
@@ -93,6 +94,7 @@
 		BA60A626239790B700EDBCD1 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		BA60A6292397913800EDBCD1 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		BA6315F52164B2E20071DE9F /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		BA8D9B8F239A2F61008F8B5D /* ContainerScollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerScollView.swift; sourceTree = "<group>"; };
 		BA9FD8E42398FC8F004853A8 /* RecorderTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecorderTimeView.xib; sourceTree = "<group>"; };
 		BA9FD8E52398FC8F004853A8 /* RecorderTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecorderTimeView.swift; sourceTree = "<group>"; };
 		BAA446C421634DA7008C6FCC /* DaTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +264,7 @@
 		BA60A61723978D6E00EDBCD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA8D9B8F239A2F61008F8B5D /* ContainerScollView.swift */,
 				BA60A61823978D6E00EDBCD1 /* NibView.swift */,
 			);
 			path = Views;
@@ -660,6 +663,7 @@
 				BA2DB84922704DEF00F88D57 /* String+Binary.swift in Sources */,
 				BAD6E998226F07B400C5690F /* Fingerprinter.swift in Sources */,
 				BA60A61A23978D6E00EDBCD1 /* NibView.swift in Sources */,
+				BA8D9B90239A2F61008F8B5D /* ContainerScollView.swift in Sources */,
 				BA60A61023978CC800EDBCD1 /* QRCodeScannerError.swift in Sources */,
 				BA60A62A2397913800EDBCD1 /* String+BoundingRect.swift in Sources */,
 				BA60A61123978CC800EDBCD1 /* QRCodeScannerViewController.swift in Sources */,
